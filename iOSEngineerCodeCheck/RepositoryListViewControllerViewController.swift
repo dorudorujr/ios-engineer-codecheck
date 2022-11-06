@@ -16,7 +16,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     var task: URLSessionTask?
     var searchWord: String!
     var apiUrl: String!
-    var idx: Int!
+    var repositoryListIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +77,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 画面遷移時に呼ばれる
-        idx = indexPath.row
+        repositoryListIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
     }
 }
