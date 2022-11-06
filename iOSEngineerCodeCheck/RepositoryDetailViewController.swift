@@ -9,7 +9,7 @@
 import UIKit
 
 class RepositoryDetailViewController: UIViewController {
-    @IBOutlet weak var ImgView: UIImageView!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     @IBOutlet weak var TtlLbl: UILabel!
     
@@ -45,7 +45,7 @@ class RepositoryDetailViewController: UIViewController {
                 URLSession.shared.dataTask(with: URL(string: imgURL)!) { data, _, _ in
                     let img = UIImage(data: data!)!
                     DispatchQueue.main.async {
-                        self.ImgView.image = img
+                        self.avatarImageView.image = img
                     }
                 }.resume()
             }
