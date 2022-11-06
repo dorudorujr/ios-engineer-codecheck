@@ -16,7 +16,7 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak var languageLabel: UILabel!
     
     @IBOutlet weak var stargazersCountLabel: UILabel!
-    @IBOutlet weak var WchsLbl: UILabel!
+    @IBOutlet weak var wachersCountLabel: UILabel!
     @IBOutlet weak var FrksLbl: UILabel!
     @IBOutlet weak var IsssLbl: UILabel!
     
@@ -29,7 +29,7 @@ class RepositoryDetailViewController: UIViewController {
         
         languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
         stargazersCountLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
-        WchsLbl.text = "\(repo["wachers_count"] as? Int ?? 0) watchers"
+        wachersCountLabel.text = "\(repo["wachers_count"] as? Int ?? 0) watchers"
         FrksLbl.text = "\(repo["forks_count"] as? Int ?? 0) forks"
         IsssLbl.text = "\(repo["open_issues_count"] as? Int ?? 0) open issues"
         getImage()
