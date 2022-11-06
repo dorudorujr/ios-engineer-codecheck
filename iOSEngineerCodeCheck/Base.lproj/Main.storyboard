@@ -137,9 +137,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="J6o-vL-S1z"/>
                     <connections>
-                        <outlet property="FrksLbl" destination="ZMv-4f-X2V" id="i84-sH-c5t"/>
                         <outlet property="IsssLbl" destination="dzg-K8-h2L" id="L0v-sy-cD4"/>
                         <outlet property="avatarImageView" destination="Iim-eb-8Ad" id="Ag6-Tp-4GC"/>
+                        <outlet property="forksCountLabel" destination="ZMv-4f-X2V" id="FSM-Z5-uqg"/>
                         <outlet property="languageLabel" destination="s3M-QO-Kom" id="vDI-6K-ecu"/>
                         <outlet property="stargazersCountLabel" destination="0WZ-UA-R8O" id="KDl-j2-dYa"/>
                         <outlet property="titleLabel" destination="4q1-pG-WSB" id="3S7-Ys-Nn9"/>
