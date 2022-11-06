@@ -11,7 +11,7 @@ import UIKit
 class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     
-    @IBOutlet weak var TtlLbl: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var LangLbl: UILabel!
     
@@ -38,7 +38,7 @@ class RepositoryDetailViewController: UIViewController {
     func getImage() {
         let repo = repositoryListViewController.repositoryDataList[repositoryListViewController.repositoryListIndex]
         
-        TtlLbl.text = repo["full_name"] as? String
+        titleLabel.text = repo["full_name"] as? String
         
         if let owner = repo["owner"] as? [String: Any] {
             if let imgURL = owner["avatar_url"] as? String {
