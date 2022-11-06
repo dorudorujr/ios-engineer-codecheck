@@ -37,7 +37,7 @@ class ViewController2: UIViewController {
         
     }
     
-    func getImage(){
+    func getImage() {
         
         let repo = vc1.repo[vc1.idx]
         
@@ -45,7 +45,7 @@ class ViewController2: UIViewController {
         
         if let owner = repo["owner"] as? [String: Any] {
             if let imgURL = owner["avatar_url"] as? String {
-                URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
+                URLSession.shared.dataTask(with: URL(string: imgURL)!) { data, _, _ in
                     let img = UIImage(data: data!)!
                     DispatchQueue.main.async {
                         self.ImgView.image = img
