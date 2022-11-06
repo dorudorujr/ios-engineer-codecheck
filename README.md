@@ -44,3 +44,10 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 
 提出された課題の評価ポイントに関しては、[こちらの記事](https://qiita.com/lovee/items/d76c68341ec3e7beb611)に詳しく書かれてありますので、ぜひご覧ください。
 ライブラリの利用に関しては [こちらの記事](https://qiita.com/ykws/items/b951a2e24ca85013e722)も参照ください。
+
+## 環境構築
+### 必要ツール
+- [Mint](https://github.com/yonaskolb/Mint#installing)
+### セットアップ
+下記コマンドを実行してください
+`mint bootstrap`
