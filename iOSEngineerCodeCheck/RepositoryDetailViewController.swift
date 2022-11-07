@@ -38,6 +38,7 @@ class RepositoryDetailViewController: UIViewController {
     func getImage() {
         let repo = repositoryListViewController.repositoryDataList[repositoryListViewController.repositoryListIndex]
         
+        // TODO: 正しい場所に移動する
         titleLabel.text = repo["full_name"] as? String
         
         if let owner = repo["owner"] as? [String: Any] {
