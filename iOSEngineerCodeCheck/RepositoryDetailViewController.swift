@@ -32,10 +32,10 @@ class RepositoryDetailViewController: UIViewController {
         wachersCountLabel.text = "\(repo["wachers_count"] as? Int ?? 0) watchers"
         forksCountLabel.text = "\(repo["forks_count"] as? Int ?? 0) forks"
         openIssuesCountLabel.text = "\(repo["open_issues_count"] as? Int ?? 0) open issues"
-        getImage()
+        setUpAvatarImageView()
     }
     
-    func getImage() {
+    func setUpAvatarImageView() {
         let repo = repositoryListViewController.repositoryDataList[repositoryListViewController.repositoryListIndex]
         
         // TODO: 正しい場所に移動する
