@@ -41,15 +41,20 @@ class RepositoryDetailViewController: UIViewController {
         // TODO: 正しい場所に移動する
         titleLabel.text = repo["full_name"] as? String
         
-        if let owner = repo["owner"] as? [String: Any] {
-            if let imgURL = owner["avatar_url"] as? String {
-                URLSession.shared.dataTask(with: URL(string: imgURL)!) { data, _, _ in
-                    let img = UIImage(data: data!)!
-                    DispatchQueue.main.async {
-                        self.avatarImageView.image = img
-                    }
-                }.resume()
-            }
+        guard let owner = repo["owner"] as? [String: Any],
+              let avatarURL = owner["avatar_url"] as? String,
+              let imgURL = URL(string: avatarURL) else {
+            return
         }
+        
+        URLSession.shared.dataTask(with: imgURL) { data, _, _ in
+            guard let data = data,
+                  let img = UIImage(data: data) else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.avatarImageView.image = img
+            }
+        }.resume()
     }
 }
