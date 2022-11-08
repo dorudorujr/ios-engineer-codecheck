@@ -20,12 +20,16 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var forksCountLabel: UILabel!
     @IBOutlet weak private var openIssuesCountLabel: UILabel!
     
-    var repositoryListViewController: RepositoryListViewController!
+    var repositoryListViewController: RepositoryListViewController?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let repo = repositoryListViewController.repositoryDataList[repositoryListViewController.repositoryListIndex]
+        var repo: [String: Any] = [:]
+        if let repositoryListIndex = repositoryListViewController?.repositoryListIndex,
+           let repository = repositoryListViewController?.repositoryDataList[repositoryListIndex] {
+            repo = repository
+        }
         
         languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
         stargazersCountLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
@@ -36,20 +40,28 @@ class RepositoryDetailViewController: UIViewController {
     }
     
     private func setUpAvatarImageView() {
-        let repo = repositoryListViewController.repositoryDataList[repositoryListViewController.repositoryListIndex]
+        guard let repositoryListIndex = repositoryListViewController?.repositoryListIndex,
+              let repo = repositoryListViewController?.repositoryDataList[repositoryListIndex] else {
+            return
+        }
         
         // TODO: 正しい場所に移動する
         titleLabel.text = repo["full_name"] as? String
         
-        if let owner = repo["owner"] as? [String: Any] {
-            if let imgURL = owner["avatar_url"] as? String {
-                URLSession.shared.dataTask(with: URL(string: imgURL)!) { data, _, _ in
-                    let img = UIImage(data: data!)!
-                    DispatchQueue.main.async {
-                        self.avatarImageView.image = img
-                    }
-                }.resume()
-            }
+        guard let owner = repo["owner"] as? [String: Any],
+              let avatarURL = owner["avatar_url"] as? String,
+              let imgURL = URL(string: avatarURL) else {
+            return
         }
+        
+        URLSession.shared.dataTask(with: imgURL) { data, _, _ in
+            guard let data = data,
+                  let img = UIImage(data: data) else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.avatarImageView.image = img
+            }
+        }.resume()
     }
 }
