@@ -26,7 +26,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // ↓こうすれば初期のテキストを消せる
+        // 初期のテキストを消すためにこのタイミングで空文字を設定
         searchBar.text = ""
         return true
     }
@@ -50,7 +50,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
                     }
                 }
             }
-            // これ呼ばなきゃリストが更新されません
+            // リスト更新のためにtaskをresume
             task?.resume()
         }
     }
@@ -76,7 +76,6 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 画面遷移時に呼ばれる
         repositoryListIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
     }
