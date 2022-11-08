@@ -42,15 +42,21 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
             return
         }
         
-        let apiUrl = "https://api.github.com/search/repositories?q=\(searchWord)"
-        task = URLSession.shared.dataTask(with: URL(string: apiUrl)!) { data, _, _ in
-            if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                if let items = obj["items"] as? [[String: Any]] {
-                    self.repositoryDataList = items
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }
+        guard let apiUrl = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)") else {
+            return
+        }
+        task = URLSession.shared.dataTask(with: apiUrl) { data, _, _ in
+            guard let data = data,
+                  let obj = try! JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                return
+            }
+            
+            guard let items = obj["items"] as? [[String: Any]] else {
+                return
+            }
+            self.repositoryDataList = items
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
         // リスト更新のためにtaskをresume
