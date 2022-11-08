@@ -17,7 +17,6 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     
     private var task: URLSessionTask?
     private var searchWord: String!
-    private var apiUrl: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +39,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
         searchWord = searchBar.text!
         
         if !searchWord.isEmpty {
-            apiUrl = "https://api.github.com/search/repositories?q=\(searchWord!)"
+            let apiUrl = "https://api.github.com/search/repositories?q=\(searchWord!)"
             task = URLSession.shared.dataTask(with: URL(string: apiUrl)!) { data, _, _ in
                 if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
                     if let items = obj["items"] as? [[String: Any]] {
