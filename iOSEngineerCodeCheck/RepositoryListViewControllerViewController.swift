@@ -16,7 +16,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     var repositoryListIndex: Int!
     
     private var task: URLSessionTask?
-    private var searchWord: String!
+    private var searchWord: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,23 +36,25 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchWord = searchBar.text!
+        searchWord = searchBar.text
         
-        if !searchWord.isEmpty {
-            let apiUrl = "https://api.github.com/search/repositories?q=\(searchWord!)"
-            task = URLSession.shared.dataTask(with: URL(string: apiUrl)!) { data, _, _ in
-                if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                    if let items = obj["items"] as? [[String: Any]] {
-                        self.repositoryDataList = items
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
+        guard let searchWord = searchWord, !searchWord.isEmpty else {
+            return
+        }
+        
+        let apiUrl = "https://api.github.com/search/repositories?q=\(searchWord)"
+        task = URLSession.shared.dataTask(with: URL(string: apiUrl)!) { data, _, _ in
+            if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
+                if let items = obj["items"] as? [[String: Any]] {
+                    self.repositoryDataList = items
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
                 }
             }
-            // リスト更新のためにtaskをresume
-            task?.resume()
         }
+        // リスト更新のためにtaskをresume
+        task?.resume()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
