@@ -9,16 +9,16 @@
 import UIKit
 
 class RepositoryDetailViewController: UIViewController {
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak private var avatarImageView: UIImageView!
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak private var titleLabel: UILabel!
     
-    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak private var languageLabel: UILabel!
     
-    @IBOutlet weak var stargazersCountLabel: UILabel!
-    @IBOutlet weak var wachersCountLabel: UILabel!
-    @IBOutlet weak var forksCountLabel: UILabel!
-    @IBOutlet weak var openIssuesCountLabel: UILabel!
+    @IBOutlet weak private var stargazersCountLabel: UILabel!
+    @IBOutlet weak private var wachersCountLabel: UILabel!
+    @IBOutlet weak private var forksCountLabel: UILabel!
+    @IBOutlet weak private var openIssuesCountLabel: UILabel!
     
     var repositoryListViewController: RepositoryListViewController!
         
@@ -35,7 +35,7 @@ class RepositoryDetailViewController: UIViewController {
         setUpAvatarImageView()
     }
     
-    func setUpAvatarImageView() {
+    private func setUpAvatarImageView() {
         let repo = repositoryListViewController.repositoryDataList[repositoryListViewController.repositoryListIndex]
         
         // TODO: 正しい場所に移動する
