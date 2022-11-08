@@ -20,14 +20,15 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var forksCountLabel: UILabel!
     @IBOutlet weak private var openIssuesCountLabel: UILabel!
     
-    var repositoryListViewController: RepositoryListViewController!
+    var repositoryListViewController: RepositoryListViewController?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         var repo: [String: Any] = [:]
-        if let repositoryListIndex = repositoryListViewController.repositoryListIndex {
-            repo = repositoryListViewController.repositoryDataList[repositoryListIndex]
+        if let repositoryListIndex = repositoryListViewController?.repositoryListIndex,
+           let repository = repositoryListViewController?.repositoryDataList[repositoryListIndex] {
+            repo = repository
         }
         
         languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
@@ -39,10 +40,10 @@ class RepositoryDetailViewController: UIViewController {
     }
     
     private func setUpAvatarImageView() {
-        guard let repositoryListIndex = repositoryListViewController.repositoryListIndex else {
+        guard let repositoryListIndex = repositoryListViewController?.repositoryListIndex,
+              let repo = repositoryListViewController?.repositoryDataList[repositoryListIndex] else {
             return
         }
-        let repo = repositoryListViewController.repositoryDataList[repositoryListIndex]
         
         // TODO: 正しい場所に移動する
         titleLabel.text = repo["full_name"] as? String
