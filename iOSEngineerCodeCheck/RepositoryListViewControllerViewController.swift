@@ -13,7 +13,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     
     var repositoryDataList: [[String: Any]] = []
     
-    var repositoryListIndex: Int!
+    var repositoryListIndex: Int?
     
     private var task: URLSessionTask?
     private var searchWord: String?

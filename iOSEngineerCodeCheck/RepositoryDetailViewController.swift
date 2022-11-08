@@ -25,7 +25,10 @@ class RepositoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let repo = repositoryListViewController.repositoryDataList[repositoryListViewController.repositoryListIndex]
+        var repo: [String: Any] = [:]
+        if let repositoryListIndex = repositoryListViewController.repositoryListIndex {
+            repo = repositoryListViewController.repositoryDataList[repositoryListIndex]
+        }
         
         languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
         stargazersCountLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
@@ -36,7 +39,10 @@ class RepositoryDetailViewController: UIViewController {
     }
     
     private func setUpAvatarImageView() {
-        let repo = repositoryListViewController.repositoryDataList[repositoryListViewController.repositoryListIndex]
+        guard let repositoryListIndex = repositoryListViewController.repositoryListIndex else {
+            return
+        }
+        let repo = repositoryListViewController.repositoryDataList[repositoryListIndex]
         
         // TODO: 正しい場所に移動する
         titleLabel.text = repo["full_name"] as? String
