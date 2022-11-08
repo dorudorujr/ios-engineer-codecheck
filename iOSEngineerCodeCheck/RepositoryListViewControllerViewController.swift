@@ -13,10 +13,11 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     
     var repositoryDataList: [[String: Any]] = []
     
-    var task: URLSessionTask?
-    var searchWord: String!
-    var apiUrl: String!
     var repositoryListIndex: Int!
+    
+    private var task: URLSessionTask?
+    private var searchWord: String!
+    private var apiUrl: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
