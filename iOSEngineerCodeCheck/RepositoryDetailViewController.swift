@@ -54,7 +54,8 @@ class RepositoryDetailViewController: UIViewController {
             return
         }
         
-        URLSession.shared.dataTask(with: imgURL) { data, _, _ in
+        URLSession.shared.dataTask(with: imgURL) { [weak self] data, _, _ in
+            guard let self = self else { return }
             guard let data = data,
                   let img = UIImage(data: data) else {
                 return
