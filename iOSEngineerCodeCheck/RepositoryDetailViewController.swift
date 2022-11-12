@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var avatarImageView: UIImageView!
@@ -54,15 +55,8 @@ class RepositoryDetailViewController: UIViewController {
             return
         }
         
-        URLSession.shared.dataTask(with: imgURL) { [weak self] data, _, _ in
-            guard let self = self else { return }
-            guard let data = data,
-                  let img = UIImage(data: data) else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.avatarImageView.image = img
-            }
-        }.resume()
+        DispatchQueue.main.async {
+            self.avatarImageView.kf.setImage(with: imgURL)
+        }
     }
 }
