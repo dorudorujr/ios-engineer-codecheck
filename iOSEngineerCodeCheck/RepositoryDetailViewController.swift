@@ -33,7 +33,7 @@ class RepositoryDetailViewController: UIViewController {
         
         languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
         stargazersCountLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
-        wachersCountLabel.text = "\(repo["wachers_count"] as? Int ?? 0) watchers"
+        wachersCountLabel.text = "\(repo["watchers_count"] as? Int ?? 0) watchers"
         forksCountLabel.text = "\(repo["forks_count"] as? Int ?? 0) forks"
         openIssuesCountLabel.text = "\(repo["open_issues_count"] as? Int ?? 0) open issues"
         setUpAvatarImageView()
