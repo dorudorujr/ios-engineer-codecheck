@@ -45,7 +45,8 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
         guard let apiURL = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)") else {
             return
         }
-        task = URLSession.shared.dataTask(with: apiURL) { data, _, _ in
+        task = URLSession.shared.dataTask(with: apiURL) { [weak self] data, _, _ in
+            guard let self = self else { return }
             guard let data = data,
                   let obj = try! JSONSerialization.jsonObject(with: data) as? [String: Any] else {
                 return
