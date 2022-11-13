@@ -21,36 +21,29 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var forksCountLabel: UILabel!
     @IBOutlet weak private var openIssuesCountLabel: UILabel!
     
-    var repositoryListViewController: RepositoryListViewController?
+    var repositoryData: GitHubRepositoryData?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var repo: GitHubRepositoryData?
-        if let repositoryListIndex = repositoryListViewController?.repositoryListIndex,
-           let repository = repositoryListViewController?.repositoryDataList[repositoryListIndex] {
-            repo = repository
-        }
-        
-        languageLabel.text = "Written in \(repo?.language ?? "")"
-        stargazersCountLabel.text = "\(repo?.stargazersCount ?? 0) stars"
-        wachersCountLabel.text = "\(repo?.watchersCount ?? 0) watchers"
-        forksCountLabel.text = "\(repo?.forksCount ?? 0) forks"
-        openIssuesCountLabel.text = "\(repo?.openIssuesCount ?? 0) open issues"
+        languageLabel.text = "Written in \(repositoryData?.language ?? "")"
+        stargazersCountLabel.text = "\(repositoryData?.stargazersCount ?? 0) stars"
+        wachersCountLabel.text = "\(repositoryData?.watchersCount ?? 0) watchers"
+        forksCountLabel.text = "\(repositoryData?.forksCount ?? 0) forks"
+        openIssuesCountLabel.text = "\(repositoryData?.openIssuesCount ?? 0) open issues"
         
         setUpAvatarImageView()
     }
     
     private func setUpAvatarImageView() {
-        guard let repositoryListIndex = repositoryListViewController?.repositoryListIndex,
-              let repo = repositoryListViewController?.repositoryDataList[repositoryListIndex] else {
+        guard let repositoryData = repositoryData else {
             return
         }
         
         // TODO: 正しい場所に移動する
-        titleLabel.text = repo.fullName
+        titleLabel.text = repositoryData.fullName
         
-        guard let imgURL = URL(string: repo.owner.avatarUrl) else {
+        guard let imgURL = URL(string: repositoryData.owner.avatarUrl) else {
             return
         }
         

@@ -11,10 +11,8 @@ import UIKit
 class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var repositoryDataList = [GitHubRepositoryData]()
-    
-    var repositoryListIndex: Int?
-    
+    private var repositoryDataList = [GitHubRepositoryData]()
+    private var repositoryListIndex: Int?
     private var searchWord: String?
     private var canceller: Task<(), Never>?
     private let searchRepository = SearchGitHubRepositoryRequest()
@@ -65,7 +63,10 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
             guard let detailViewController = segue.destination as? RepositoryDetailViewController else {
                 return
             }
-            detailViewController.repositoryListViewController = self
+            guard let index = repositoryListIndex else {
+                return
+            }
+            detailViewController.repositoryData = repositoryDataList[index]
         }
     }
     
