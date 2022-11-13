@@ -11,8 +11,9 @@ import Foundation
 protocol Requestable {
     // typealiasにて定義必須
     associatedtype Parameter: Parameterizable
+    associatedtype Response: Responsible
     
-    func send(with parameter: Parameter) async throws -> [String: Any]
+    func send(with parameter: Parameter) async throws -> Response
 }
 
 protocol HTTPRequestable: Requestable {
@@ -26,15 +27,15 @@ protocol HTTPRequestable: Requestable {
 protocol GetRequestable: HTTPRequestable {}
 
 extension GetRequestable {
-    func send(with parameter: Parameter) async throws -> [String: Any] {
+    func send(with parameter: Parameter) async throws -> Response {
         let path = parameter.pathWithParameter(pathFormat: self.path)
         guard let url = URL(string: hostName + path) else {
             throw APIClientError.invalidURL
         }
         let (data, _) = try await URLSession.shared.data(from: url)
-        guard let obj = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-            throw APIClientError.noData
+        guard let utf8Data = String(data: data, encoding: String.Encoding.utf8)?.data(using: .utf8) else {
+            throw APIClientError.dataMappingError
         }
-        return obj
+        return try Response.decoder.decode(Response.self, from: utf8Data)
     }
 }

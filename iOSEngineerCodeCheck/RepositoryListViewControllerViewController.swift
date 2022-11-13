@@ -11,7 +11,7 @@ import UIKit
 class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var repositoryDataList: [[String: Any]] = []
+    var repositoryDataList = [GitHubRepositoryData]()
     
     var repositoryListIndex: Int?
     
@@ -49,11 +49,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     private func fetch(parameter: SearchGitHubRepositoryParameter) {
         canceller = Task {
             do {
-                let obj = try await searchRepository.send(with: parameter)
-                guard let items = obj["items"] as? [[String: Any]] else {
-                    return
-                }
-                self.repositoryDataList = items
+                self.repositoryDataList = try await searchRepository.send(with: parameter).items
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -80,8 +76,8 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subtitleCell")
         let rp = repositoryDataList[indexPath.row]
-        cell.textLabel?.text = rp["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = rp["language"] as? String ?? ""
+        cell.textLabel?.text = rp.fullName
+        cell.detailTextLabel?.text = rp.language
         cell.tag = indexPath.row
         return cell
     }

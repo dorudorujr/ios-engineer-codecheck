@@ -8,5 +8,5 @@
 
 enum APIClientError: Error {
     case invalidURL
-    case noData
+    case dataMappingError
 }

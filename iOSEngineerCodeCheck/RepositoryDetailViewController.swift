@@ -26,17 +26,18 @@ class RepositoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var repo: [String: Any] = [:]
+        var repo: GitHubRepositoryData?
         if let repositoryListIndex = repositoryListViewController?.repositoryListIndex,
            let repository = repositoryListViewController?.repositoryDataList[repositoryListIndex] {
             repo = repository
         }
         
-        languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
-        stargazersCountLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
-        wachersCountLabel.text = "\(repo["watchers_count"] as? Int ?? 0) watchers"
-        forksCountLabel.text = "\(repo["forks_count"] as? Int ?? 0) forks"
-        openIssuesCountLabel.text = "\(repo["open_issues_count"] as? Int ?? 0) open issues"
+        languageLabel.text = "Written in \(repo?.language ?? "")"
+        stargazersCountLabel.text = "\(repo?.stargazersCount ?? 0) stars"
+        wachersCountLabel.text = "\(repo?.watchersCount ?? 0) watchers"
+        forksCountLabel.text = "\(repo?.forksCount ?? 0) forks"
+        openIssuesCountLabel.text = "\(repo?.openIssuesCount ?? 0) open issues"
+        
         setUpAvatarImageView()
     }
     
@@ -47,11 +48,9 @@ class RepositoryDetailViewController: UIViewController {
         }
         
         // TODO: 正しい場所に移動する
-        titleLabel.text = repo["full_name"] as? String
+        titleLabel.text = repo.fullName
         
-        guard let owner = repo["owner"] as? [String: Any],
-              let avatarURL = owner["avatar_url"] as? String,
-              let imgURL = URL(string: avatarURL) else {
+        guard let imgURL = URL(string: repo.owner.avatarUrl) else {
             return
         }
         

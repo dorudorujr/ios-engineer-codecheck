@@ -6,7 +6,7 @@
 //  Copyright © 2022 YUMEMI Inc. All rights reserved.
 //
 
-protocol SearchGitHubRepositoryRequestable: GetRequestable where Parameter == SearchGitHubRepositoryParameter {}
+protocol SearchGitHubRepositoryRequestable: GetRequestable where Parameter == SearchGitHubRepositoryParameter, Response == RepositorySearchResponse {}
 
 extension SearchGitHubRepositoryRequestable {
     var hostName: String { return "https://api.github.com" }
