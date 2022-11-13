@@ -15,8 +15,9 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     
     var repositoryListIndex: Int?
     
-    private var task: URLSessionTask?
     private var searchWord: String?
+    private var canceller: Task<(), Never>?
+    private let searchRepository = SearchGitHubRepositoryRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
+        canceller?.cancel()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -42,26 +43,25 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
             return
         }
         
-        guard let apiURL = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)") else {
-            return
+        fetch(parameter: .init(searchWord: searchWord))
+    }
+    
+    private func fetch(parameter: SearchGitHubRepositoryParameter) {
+        canceller = Task {
+            do {
+                let obj = try await searchRepository.send(with: parameter)
+                guard let items = obj["items"] as? [[String: Any]] else {
+                    return
+                }
+                self.repositoryDataList = items
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print("API Error:\(error)")
+                fatalError()
+            }
         }
-        task = URLSession.shared.dataTask(with: apiURL) { [weak self] data, _, _ in
-            guard let self = self else { return }
-            guard let data = data,
-                  let obj = try! JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-                return
-            }
-            
-            guard let items = obj["items"] as? [[String: Any]] else {
-                return
-            }
-            self.repositoryDataList = items
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        // リスト更新のためにtaskをresume
-        task?.resume()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
