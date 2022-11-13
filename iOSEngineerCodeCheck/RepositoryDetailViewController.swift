@@ -26,6 +26,7 @@ class RepositoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleLabel.text = repositoryData?.fullName ?? ""
         languageLabel.text = "Written in \(repositoryData?.language ?? "")"
         stargazersCountLabel.text = "\(repositoryData?.stargazersCount ?? 0) stars"
         wachersCountLabel.text = "\(repositoryData?.watchersCount ?? 0) watchers"
@@ -39,9 +40,6 @@ class RepositoryDetailViewController: UIViewController {
         guard let repositoryData = repositoryData else {
             return
         }
-        
-        // TODO: 正しい場所に移動する
-        titleLabel.text = repositoryData.fullName
         
         guard let imgURL = URL(string: repositoryData.owner.avatarUrl) else {
             return
