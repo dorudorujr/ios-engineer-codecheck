@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71822928A80200CF2A10 /* StoryboardScenes.swift */; };
+		15CD71852928A80D00CF2A10 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71842928A80D00CF2A10 /* Segues.swift */; };
 		15E143C6291FA70500D980A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 15E143C5291FA70500D980A3 /* Kingfisher */; };
 		15E143CA291FF01A00D980A3 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E143C9291FF01A00D980A3 /* Requestable.swift */; };
 		15E143CC291FF05900D980A3 /* Parameterizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E143CB291FF05900D980A3 /* Parameterizable.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15CD71822928A80200CF2A10 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
+		15CD71842928A80D00CF2A10 /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		15E143C9291FF01A00D980A3 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		15E143CB291FF05900D980A3 /* Parameterizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameterizable.swift; sourceTree = "<group>"; };
 		15E143D12920CD3400D980A3 /* APIClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
@@ -98,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15CD71802928A52B00CF2A10 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				15CD71842928A80D00CF2A10 /* Segues.swift */,
+				15CD71822928A80200CF2A10 /* StoryboardScenes.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		15E143C7291FE19D00D980A3 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +173,7 @@
 		BFD945DD244DC5E80012785A /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
+				15CD71802928A52B00CF2A10 /* Generated */,
 				15E143D82920E59200D980A3 /* Entity */,
 				15E143C7291FE19D00D980A3 /* Repository */,
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
@@ -199,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFD94605244DC5EC0012785A /* Build configuration list for PBXNativeTarget "iOSEngineerCodeCheck" */;
 			buildPhases = (
+				15CD71812928A56900CF2A10 /* SwiftGen */,
 				BFD945D7244DC5E80012785A /* Sources */,
 				BFD945D8244DC5E80012785A /* Frameworks */,
 				BFD945D9244DC5E80012785A /* Resources */,
@@ -344,6 +359,26 @@
 			shellPath = /bin/sh;
 			shellScript = "if test -d /opt/homebrew/bin; then\n    PATH=/opt/homebrew/bin/:$PATH\nfi\nif which mint >/dev/null; then\n    mint run swiftlint\nelse\n    echo \"warning: Mint not installed, download from https://github.com/yonaskolb/Mint\"\nfi\n";
 		};
+		15CD71812928A56900CF2A10 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/iOSEngineerCodeCheck/Generated/StoryboardScenes.swift",
+				"$(SRCROOT)/iOSEngineerCodeCheck/Generated/Segues.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d /opt/homebrew/bin; then\n    PATH=/opt/homebrew/bin/:$PATH\nfi\nif which mint >/dev/null; then\n    mint run swiftgen config run --config ${PROJECT_DIR}/swiftgen.yml\nelse\n    echo \"warning: Mint not installed, download from https://github.com/yonaskolb/Mint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -354,9 +389,11 @@
 				15E143E02920EA2F00D980A3 /* SearchGitHubRepositoryResponse.swift in Sources */,
 				15E143D72920D40200D980A3 /* SearchGitHubRepositoryRequest.swift in Sources */,
 				15E143CC291FF05900D980A3 /* Parameterizable.swift in Sources */,
+				15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */,
 				15E143DE2920E87400D980A3 /* Responsible.swift in Sources */,
 				15E143DA2920E5D900D980A3 /* GitHubRepositoryData.swift in Sources */,
 				15E143D22920CD3400D980A3 /* APIClientError.swift in Sources */,
+				15CD71852928A80D00CF2A10 /* Segues.swift in Sources */,
 				15E143D52920CFA700D980A3 /* SearchGitHubRepositoryParameter.swift in Sources */,
 				15E143CA291FF01A00D980A3 /* Requestable.swift in Sources */,
 				BFD945E3244DC5E80012785A /* RepositoryListViewControllerViewController.swift in Sources */,
