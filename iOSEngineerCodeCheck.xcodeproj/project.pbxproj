@@ -10,6 +10,7 @@
 		15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71822928A80200CF2A10 /* StoryboardScenes.swift */; };
 		15CD71852928A80D00CF2A10 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71842928A80D00CF2A10 /* Segues.swift */; };
 		15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */; };
+		15CD718A2928BF2700CF2A10 /* DependencyInjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71892928BF2700CF2A10 /* DependencyInjectable.swift */; };
 		15E143C6291FA70500D980A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 15E143C5291FA70500D980A3 /* Kingfisher */; };
 		15E143CA291FF01A00D980A3 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E143C9291FF01A00D980A3 /* Requestable.swift */; };
 		15E143CC291FF05900D980A3 /* Parameterizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E143CB291FF05900D980A3 /* Parameterizable.swift */; };
@@ -52,6 +53,7 @@
 		15CD71822928A80200CF2A10 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		15CD71842928A80D00CF2A10 /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetail.storyboard; sourceTree = "<group>"; };
+		15CD71892928BF2700CF2A10 /* DependencyInjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectable.swift; sourceTree = "<group>"; };
 		15E143C9291FF01A00D980A3 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		15E143CB291FF05900D980A3 /* Parameterizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameterizable.swift; sourceTree = "<group>"; };
 		15E143D12920CD3400D980A3 /* APIClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
@@ -111,6 +113,31 @@
 				15CD71822928A80200CF2A10 /* StoryboardScenes.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		15CD71882928BF1100CF2A10 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				15CD71892928BF2700CF2A10 /* DependencyInjectable.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		15CD718B2928BFD300CF2A10 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				15CD718C2928BFEA00CF2A10 /* RepositoryDetail */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		15CD718C2928BFEA00CF2A10 /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
+				15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */,
+			);
+			path = RepositoryDetail;
 			sourceTree = "<group>";
 		};
 		15E143C7291FE19D00D980A3 /* Repository */ = {
@@ -175,18 +202,18 @@
 		BFD945DD244DC5E80012785A /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
+				15CD718B2928BFD300CF2A10 /* UserInterface */,
+				15CD71882928BF1100CF2A10 /* DI */,
 				15CD71802928A52B00CF2A10 /* Generated */,
 				15E143D82920E59200D980A3 /* Entity */,
 				15E143C7291FE19D00D980A3 /* Repository */,
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
 				BFD945E2244DC5E80012785A /* RepositoryListViewControllerViewController.swift */,
-				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
 				BFD945EC244DC5EB0012785A /* Info.plist */,
-				15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */,
 			);
 			path = iOSEngineerCodeCheck;
 			sourceTree = "<group>";
@@ -395,6 +422,7 @@
 				15E143CC291FF05900D980A3 /* Parameterizable.swift in Sources */,
 				15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */,
 				15E143DE2920E87400D980A3 /* Responsible.swift in Sources */,
+				15CD718A2928BF2700CF2A10 /* DependencyInjectable.swift in Sources */,
 				15E143DA2920E5D900D980A3 /* GitHubRepositoryData.swift in Sources */,
 				15E143D22920CD3400D980A3 /* APIClientError.swift in Sources */,
 				15CD71852928A80D00CF2A10 /* Segues.swift in Sources */,
