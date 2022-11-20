@@ -122,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD945E2244DC5E80012785A /* RepositoryListViewController.swift */,
+				BFD945E4244DC5E80012785A /* RepositoryList.storyboard */,
 			);
 			path = RepositoryList;
 			sourceTree = "<group>";
@@ -232,7 +233,6 @@
 				15E143C7291FE19D00D980A3 /* Repository */,
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
-				BFD945E4244DC5E80012785A /* RepositoryList.storyboard */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
 				BFD945EC244DC5EB0012785A /* Info.plist */,
