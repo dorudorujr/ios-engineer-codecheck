@@ -54,22 +54,11 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="ktq-eC-ZBq"/>
                     <connections>
                         <outlet property="searchBar" destination="6rq-CD-Hob" id="mOM-jp-zYM"/>
-                        <segue destination="eve-1o-R6F" kind="show" identifier="Detail" id="M7C-ih-pbj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xer-fe-JeW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-498" y="137"/>
-        </scene>
-        <!--RepositoryDetail-->
-        <scene sceneID="cHG-94-4eP">
-            <objects>
-                <viewControllerPlaceholder storyboardName="RepositoryDetail" id="eve-1o-R6F" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="MDf-PR-e1j"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OuQ-bC-UqC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="191" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hWi-qa-NBR">
