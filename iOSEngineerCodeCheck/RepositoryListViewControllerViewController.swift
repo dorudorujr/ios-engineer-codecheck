@@ -12,7 +12,6 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     private var repositoryDataList = [GitHubRepositoryData]()
-    private var repositoryListIndex: Int?
     private var searchWord: String?
     private var canceller: Task<(), Never>?
     private let searchRepository = SearchGitHubRepositoryRequest()
@@ -52,18 +51,6 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail" {
-            guard let detailViewController = segue.destination as? RepositoryDetailViewController else {
-                return
-            }
-            guard let index = repositoryListIndex else {
-                return
-            }
-            detailViewController.repositoryData = repositoryDataList[index]
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositoryDataList.count
     }
@@ -78,7 +65,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        repositoryListIndex = indexPath.row
-        performSegue(withIdentifier: "Detail", sender: self)
+        let coordinator = RepositoryDetailCoordinatyor(repositoryData: repositoryDataList[indexPath.row])
+        coordinator.start(with: self)
     }
 }
