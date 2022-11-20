@@ -50,3 +50,11 @@ class RepositoryDetailViewController: UIViewController {
         }
     }
 }
+
+extension RepositoryDetailViewController: DependencyInjectable {
+    typealias Dependency = GitHubRepositoryData
+    
+    func inject(with dependency: GitHubRepositoryData) {
+        repositoryData = dependency
+    }
+}
