@@ -10,6 +10,7 @@
 		159E750A292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E7509292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift */; };
 		159E750D292A6B96001B8685 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750C292A6B96001B8685 /* Coordinator.swift */; };
 		159E7510292A710C001B8685 /* RepositoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */; };
+		159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */; };
 		15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71822928A80200CF2A10 /* StoryboardScenes.swift */; };
 		15CD71852928A80D00CF2A10 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71842928A80D00CF2A10 /* Segues.swift */; };
 		15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */; };
@@ -56,6 +57,7 @@
 		159E7509292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCoordinatyor.swift; sourceTree = "<group>"; };
 		159E750C292A6B96001B8685 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCoordinator.swift; sourceTree = "<group>"; };
+		159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		15CD71822928A80200CF2A10 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		15CD71842928A80D00CF2A10 /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetail.storyboard; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
 				BFD945EC244DC5EB0012785A /* Info.plist */,
+				159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */,
 			);
 			path = iOSEngineerCodeCheck;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				15E143D52920CFA700D980A3 /* SearchGitHubRepositoryParameter.swift in Sources */,
 				15E143CA291FF01A00D980A3 /* Requestable.swift in Sources */,
 				BFD945E3244DC5E80012785A /* RepositoryListViewController.swift in Sources */,
+				159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailViewController.swift in Sources */,
 				15E143DC2920E78D00D980A3 /* Owner.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
