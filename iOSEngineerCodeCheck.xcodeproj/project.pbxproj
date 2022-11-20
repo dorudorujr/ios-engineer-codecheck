@@ -118,6 +118,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		159E750E292A6FD6001B8685 /* RepositoryList */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E2244DC5E80012785A /* RepositoryListViewController.swift */,
+			);
+			path = RepositoryList;
+			sourceTree = "<group>";
+		};
 		15CD71802928A52B00CF2A10 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +146,7 @@
 		15CD718B2928BFD300CF2A10 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				159E750E292A6FD6001B8685 /* RepositoryList */,
 				15CD718C2928BFEA00CF2A10 /* RepositoryDetail */,
 			);
 			path = UserInterface;
@@ -223,7 +232,6 @@
 				15E143C7291FE19D00D980A3 /* Repository */,
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
-				BFD945E2244DC5E80012785A /* RepositoryListViewController.swift */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
