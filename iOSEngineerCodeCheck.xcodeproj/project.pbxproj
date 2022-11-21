@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1570797F292BA9EB00E48161 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1570797E292BA9EB00E48161 /* ReSwift */; };
 		159E750A292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E7509292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift */; };
 		159E750D292A6B96001B8685 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750C292A6B96001B8685 /* Coordinator.swift */; };
 		159E7510292A710C001B8685 /* RepositoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */; };
@@ -94,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15E143C6291FA70500D980A3 /* Kingfisher in Frameworks */,
+				1570797F292BA9EB00E48161 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +286,7 @@
 			name = iOSEngineerCodeCheck;
 			packageProductDependencies = (
 				15E143C5291FA70500D980A3 /* Kingfisher */,
+				1570797E292BA9EB00E48161 /* ReSwift */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -359,6 +362,7 @@
 			mainGroup = BFD945D2244DC5E80012785A;
 			packageReferences = (
 				15E143C4291FA70500D980A3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1570797D292BA9EB00E48161 /* XCRemoteSwiftPackageReference "ReSwift" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -795,6 +799,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1570797D292BA9EB00E48161 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
 		15E143C4291FA70500D980A3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -806,6 +818,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1570797E292BA9EB00E48161 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1570797D292BA9EB00E48161 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
 		15E143C5291FA70500D980A3 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 15E143C4291FA70500D980A3 /* XCRemoteSwiftPackageReference "Kingfisher" */;
