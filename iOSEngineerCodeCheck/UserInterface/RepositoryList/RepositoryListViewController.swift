@@ -8,17 +8,28 @@
 
 import UIKit
 
+protocol RepositoryListCoordinatorDelegate: AnyObject {
+    func showDetail(with repositoryData: GitHubRepositoryData)
+}
+
 class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
+    typealias Repository = SearchGitHubRepositoryRequest
+    typealias Coordinator = RepositoryListCoordinatorDelegate
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     private var repositoryDataList = [GitHubRepositoryData]()
     private var searchWord: String?
     private var canceller: Task<(), Never>?
-    private let searchRepository = SearchGitHubRepositoryRequest()
+    
+    private var repository: Repository!
+    private var coordinator: Coordinator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        title = "Root View Controller"
+        navigationItem.largeTitleDisplayMode = .always
         searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
         searchBar.delegate = self
     }
@@ -40,7 +51,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     private func fetch(parameter: SearchGitHubRepositoryParameter) {
         canceller = Task {
             do {
-                self.repositoryDataList = try await searchRepository.send(with: parameter).items
+                self.repositoryDataList = try await repository.send(with: parameter).items
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -65,7 +76,15 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coordinator = RepositoryDetailCoordinatyor(repositoryData: repositoryDataList[indexPath.row])
-        coordinator.start(with: self)
+        coordinator.showDetail(with: repositoryDataList[indexPath.row])
+    }
+}
+
+extension RepositoryListViewController: DependencyInjectable {
+    typealias Dependency = (repository: Repository, coordinator: Coordinator)
+    
+    func inject(with dependency: Dependency) {
+        repository = dependency.repository
+        coordinator = dependency.coordinator
     }
 }
