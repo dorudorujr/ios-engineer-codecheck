@@ -1,0 +1,7 @@
+ib:
+  inputs: iOSEngineerCodeCheck
+  outputs: 
+    - templateName: scenes-swift5
+      output: iOSEngineerCodeCheck/Generated/StoryboardScenes.swift
+    - templateName: segues-swift5
+      output: iOSEngineerCodeCheck/Generated/Segues.swift
