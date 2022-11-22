@@ -19,6 +19,7 @@
 		159E7510292A710C001B8685 /* RepositoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */; };
 		159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */; };
 		15CA1104292CF59400941B76 /* RequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1103292CF59400941B76 /* RequestAction.swift */; };
+		15CA1108292CF78B00941B76 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1107292CF78B00941B76 /* LoadingState.swift */; };
 		15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71822928A80200CF2A10 /* StoryboardScenes.swift */; };
 		15CD71852928A80D00CF2A10 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71842928A80D00CF2A10 /* Segues.swift */; };
 		15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */; };
@@ -67,6 +68,7 @@
 		159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCoordinator.swift; sourceTree = "<group>"; };
 		159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		15CA1103292CF59400941B76 /* RequestAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAction.swift; sourceTree = "<group>"; };
+		15CA1107292CF78B00941B76 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		15CD71822928A80200CF2A10 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		15CD71842928A80D00CF2A10 /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetail.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		15CA1100292CF4F000941B76 /* Redux */ = {
 			isa = PBXGroup;
 			children = (
+				15CA1105292CF76400941B76 /* State */,
 				15CA1101292CF57600941B76 /* Action */,
 			);
 			path = Redux;
@@ -168,6 +171,22 @@
 			isa = PBXGroup;
 			children = (
 				15CA1103292CF59400941B76 /* RequestAction.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		15CA1105292CF76400941B76 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				15CA1106292CF77200941B76 /* Common */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		15CA1106292CF77200941B76 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				15CA1107292CF78B00941B76 /* LoadingState.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -508,6 +527,7 @@
 				15E143DA2920E5D900D980A3 /* GitHubRepositoryData.swift in Sources */,
 				159E750A292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift in Sources */,
 				159E750D292A6B96001B8685 /* Coordinator.swift in Sources */,
+				15CA1108292CF78B00941B76 /* LoadingState.swift in Sources */,
 				15E143D22920CD3400D980A3 /* APIClientError.swift in Sources */,
 				15CD71852928A80D00CF2A10 /* Segues.swift in Sources */,
 				15E143D52920CFA700D980A3 /* SearchGitHubRepositoryParameter.swift in Sources */,
