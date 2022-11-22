@@ -8,6 +8,7 @@
 
 import ReSwift
 
+/// API通信用のAction
 enum RequestAction<Request: Requestable>: Action {
     case start(parameter: Request.Parameter)
     case success(parameter: Request.Parameter, response: Request.Response)
