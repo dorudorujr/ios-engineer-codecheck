@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxSwiftExt
 
 protocol RepositoryListCoordinatorDelegate: AnyObject {
     func showDetail(with repositoryData: GitHubRepositoryData)
@@ -92,5 +95,27 @@ extension RepositoryListViewController: DependencyInjectable {
         repository = dependency.repository
         coordinator = dependency.coordinator
         requestThunkCreator = dependency.requestThunkCreator
+    }
+}
+
+extension Reactive where Base: RepositoryListViewController.Store {
+    var isLoading: Driver<Bool> {
+        base.stateObservable.mapAt(\.isLoading)
+            .distinctUntilChanged()
+            .asDriver(onErrorDriveWith: .never())
+    }
+        
+    var error: Signal<Error> {
+        base.stateObservable.mapAt(\.error)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.rawValue)
+            .asSignal(onErrorSignalWith: .never())
+    }
+    
+    var repositoryDataList: Driver<[GitHubRepositoryData]> {
+        base.stateObservable.mapAt(\.repositorys)
+            .distinctUntilChanged()
+            .asDriver(onErrorDriveWith: .never())
     }
 }
