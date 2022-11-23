@@ -26,6 +26,7 @@
 		15CA1113292D237000941B76 /* RxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1112292D237000941B76 /* RxStore.swift */; };
 		15CA1117292DC41600941B76 /* AnyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1116292DC41600941B76 /* AnyRequest.swift */; };
 		15CA1119292DC5B100941B76 /* RepositoryListThunkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1118292DC5B100941B76 /* RepositoryListThunkCreator.swift */; };
+		15CA111B292DC6D800941B76 /* RepositoryListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA111A292DC6D800941B76 /* RepositoryListState.swift */; };
 		15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71822928A80200CF2A10 /* StoryboardScenes.swift */; };
 		15CD71852928A80D00CF2A10 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71842928A80D00CF2A10 /* Segues.swift */; };
 		15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */; };
@@ -81,6 +82,7 @@
 		15CA1112292D237000941B76 /* RxStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxStore.swift; sourceTree = "<group>"; };
 		15CA1116292DC41600941B76 /* AnyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyRequest.swift; sourceTree = "<group>"; };
 		15CA1118292DC5B100941B76 /* RepositoryListThunkCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListThunkCreator.swift; sourceTree = "<group>"; };
+		15CA111A292DC6D800941B76 /* RepositoryListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListState.swift; sourceTree = "<group>"; };
 		15CD71822928A80200CF2A10 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		15CD71842928A80D00CF2A10 /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetail.storyboard; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				15CA1106292CF77200941B76 /* Common */,
+				15CA111A292DC6D800941B76 /* RepositoryListState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				15CD718A2928BF2700CF2A10 /* DependencyInjectable.swift in Sources */,
 				15E143DA2920E5D900D980A3 /* GitHubRepositoryData.swift in Sources */,
 				159E750A292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift in Sources */,
+				15CA111B292DC6D800941B76 /* RepositoryListState.swift in Sources */,
 				159E750D292A6B96001B8685 /* Coordinator.swift in Sources */,
 				15CA1113292D237000941B76 /* RxStore.swift in Sources */,
 				15CA110A292CF81000941B76 /* Reducible.swift in Sources */,
