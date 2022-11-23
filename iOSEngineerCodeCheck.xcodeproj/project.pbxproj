@@ -18,6 +18,12 @@
 		159E750D292A6B96001B8685 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750C292A6B96001B8685 /* Coordinator.swift */; };
 		159E7510292A710C001B8685 /* RepositoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */; };
 		159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */; };
+		15CA1104292CF59400941B76 /* RequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1103292CF59400941B76 /* RequestAction.swift */; };
+		15CA1108292CF78B00941B76 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1107292CF78B00941B76 /* LoadingState.swift */; };
+		15CA110A292CF81000941B76 /* Reducible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1109292CF81000941B76 /* Reducible.swift */; };
+		15CA110C292CF8D100941B76 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA110B292CF8D100941B76 /* Event.swift */; };
+		15CA1110292D02EB00941B76 /* RequestThunkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA110F292D02EB00941B76 /* RequestThunkCreator.swift */; };
+		15CA1113292D237000941B76 /* RxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1112292D237000941B76 /* RxStore.swift */; };
 		15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71822928A80200CF2A10 /* StoryboardScenes.swift */; };
 		15CD71852928A80D00CF2A10 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71842928A80D00CF2A10 /* Segues.swift */; };
 		15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */; };
@@ -65,6 +71,12 @@
 		159E750C292A6B96001B8685 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCoordinator.swift; sourceTree = "<group>"; };
 		159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		15CA1103292CF59400941B76 /* RequestAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAction.swift; sourceTree = "<group>"; };
+		15CA1107292CF78B00941B76 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		15CA1109292CF81000941B76 /* Reducible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducible.swift; sourceTree = "<group>"; };
+		15CA110B292CF8D100941B76 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		15CA110F292D02EB00941B76 /* RequestThunkCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestThunkCreator.swift; sourceTree = "<group>"; };
+		15CA1112292D237000941B76 /* RxStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxStore.swift; sourceTree = "<group>"; };
 		15CD71822928A80200CF2A10 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
 		15CD71842928A80D00CF2A10 /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		15CD71862928AB6200CF2A10 /* RepositoryDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetail.storyboard; sourceTree = "<group>"; };
@@ -144,6 +156,75 @@
 				159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */,
 			);
 			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		15CA1100292CF4F000941B76 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				15CA1111292D235B00941B76 /* Store */,
+				15CA110D292D02C300941B76 /* ActionCreator */,
+				15CA1105292CF76400941B76 /* State */,
+				15CA1101292CF57600941B76 /* Action */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		15CA1101292CF57600941B76 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				15CA1102292CF58100941B76 /* Common */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		15CA1102292CF58100941B76 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				15CA1103292CF59400941B76 /* RequestAction.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		15CA1105292CF76400941B76 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				15CA1106292CF77200941B76 /* Common */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		15CA1106292CF77200941B76 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				15CA1107292CF78B00941B76 /* LoadingState.swift */,
+				15CA1109292CF81000941B76 /* Reducible.swift */,
+				15CA110B292CF8D100941B76 /* Event.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		15CA110D292D02C300941B76 /* ActionCreator */ = {
+			isa = PBXGroup;
+			children = (
+				15CA110E292D02D400941B76 /* Common */,
+			);
+			path = ActionCreator;
+			sourceTree = "<group>";
+		};
+		15CA110E292D02D400941B76 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				15CA110F292D02EB00941B76 /* RequestThunkCreator.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		15CA1111292D235B00941B76 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				15CA1112292D237000941B76 /* RxStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		15CD71802928A52B00CF2A10 /* Generated */ = {
@@ -244,6 +325,7 @@
 		BFD945DD244DC5E80012785A /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
+				15CA1100292CF4F000941B76 /* Redux */,
 				159E750B292A6B81001B8685 /* Protocol */,
 				15CD718B2928BFD300CF2A10 /* UserInterface */,
 				15CD71882928BF1100CF2A10 /* DI */,
@@ -477,15 +559,21 @@
 				15E143CC291FF05900D980A3 /* Parameterizable.swift in Sources */,
 				15CD71832928A80200CF2A10 /* StoryboardScenes.swift in Sources */,
 				15E143DE2920E87400D980A3 /* Responsible.swift in Sources */,
+				15CA1110292D02EB00941B76 /* RequestThunkCreator.swift in Sources */,
 				15CD718A2928BF2700CF2A10 /* DependencyInjectable.swift in Sources */,
 				15E143DA2920E5D900D980A3 /* GitHubRepositoryData.swift in Sources */,
 				159E750A292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift in Sources */,
 				159E750D292A6B96001B8685 /* Coordinator.swift in Sources */,
+				15CA1113292D237000941B76 /* RxStore.swift in Sources */,
+				15CA110A292CF81000941B76 /* Reducible.swift in Sources */,
+				15CA1108292CF78B00941B76 /* LoadingState.swift in Sources */,
 				15E143D22920CD3400D980A3 /* APIClientError.swift in Sources */,
 				15CD71852928A80D00CF2A10 /* Segues.swift in Sources */,
 				15E143D52920CFA700D980A3 /* SearchGitHubRepositoryParameter.swift in Sources */,
 				15E143CA291FF01A00D980A3 /* Requestable.swift in Sources */,
+				15CA110C292CF8D100941B76 /* Event.swift in Sources */,
 				BFD945E3244DC5E80012785A /* RepositoryListViewController.swift in Sources */,
+				15CA1104292CF59400941B76 /* RequestAction.swift in Sources */,
 				159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailViewController.swift in Sources */,
 				15E143DC2920E78D00D980A3 /* Owner.swift in Sources */,
