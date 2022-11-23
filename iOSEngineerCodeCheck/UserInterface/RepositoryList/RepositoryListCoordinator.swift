@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReSwiftThunk
 
 class RepositoryListCoordinator: Coordinator {
     private weak var viewController: RepositoryListViewController!
@@ -16,8 +17,10 @@ class RepositoryListCoordinator: Coordinator {
     
     func start(with parent: UIViewController) {
         let vc = StoryboardScene.RepositoryList.initialScene.instantiate(with: (
+            store: .init(state: nil, middleware: [createThunkMiddleware()]),
             repository: .init(),
-            coordinator: self
+            coordinator: self,
+            requestThunkCreator: .init(request: .init(SearchGitHubRepositoryRequest()))
         ))
         let nc = UINavigationController(rootViewController: vc)
         nc.modalPresentationStyle = .fullScreen

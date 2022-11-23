@@ -13,17 +13,21 @@ protocol RepositoryListCoordinatorDelegate: AnyObject {
 }
 
 class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
+    typealias State = RepositoryListState
+    typealias Store = RxStore<State>
     typealias Repository = SearchGitHubRepositoryRequest
     typealias Coordinator = RepositoryListCoordinatorDelegate
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    private var store: Store!
+    private var repository: Repository!
+    private var coordinator: Coordinator!
+    private var requestThunkCreator: RepositoryListThunkCreator!
+    
     private var repositoryDataList = [GitHubRepositoryData]()
     private var searchWord: String?
     private var canceller: Task<(), Never>?
-    
-    private var repository: Repository!
-    private var coordinator: Coordinator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,10 +85,12 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
 }
 
 extension RepositoryListViewController: DependencyInjectable {
-    typealias Dependency = (repository: Repository, coordinator: Coordinator)
+    typealias Dependency = (store: Store, repository: Repository, coordinator: Coordinator, requestThunkCreator: RepositoryListThunkCreator)
     
     func inject(with dependency: Dependency) {
+        store = dependency.store
         repository = dependency.repository
         coordinator = dependency.coordinator
+        requestThunkCreator = dependency.requestThunkCreator
     }
 }
