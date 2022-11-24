@@ -18,7 +18,6 @@ class RepositoryListCoordinator: Coordinator {
     func start(with parent: UIViewController) {
         let vc = StoryboardScene.RepositoryList.initialScene.instantiate(with: (
             store: .init(state: nil, middleware: [createThunkMiddleware()]),
-            repository: .init(),
             coordinator: self,
             requestThunkCreator: .init(request: .init(SearchGitHubRepositoryRequest()))
         ))
