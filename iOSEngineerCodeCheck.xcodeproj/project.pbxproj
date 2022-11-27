@@ -426,6 +426,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFD94608244DC5EC0012785A /* Build configuration list for PBXNativeTarget "iOSEngineerCodeCheckTests" */;
 			buildPhases = (
+				15CFE73C2933593100A550A0 /* Generate Mocks with Mockolo */,
 				BFD945ED244DC5EB0012785A /* Sources */,
 				BFD945EE244DC5EB0012785A /* Frameworks */,
 				BFD945EF244DC5EB0012785A /* Resources */,
@@ -579,6 +580,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if test -d /opt/homebrew/bin; then\n    PATH=/opt/homebrew/bin/:$PATH\nfi\nif which mint >/dev/null; then\n    mint run swiftgen config run --config ${PROJECT_DIR}/swiftgen.yml\nelse\n    echo \"warning: Mint not installed, download from https://github.com/yonaskolb/Mint\"\nfi\n";
+		};
+		15CFE73C2933593100A550A0 /* Generate Mocks with Mockolo */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Mocks with Mockolo";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${PROJECT_DIR}/iOSEngineerCodeCheckTests/MockResults.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d /opt/homebrew/bin; then\n    PATH=/opt/homebrew/bin/:$PATH\nfi\nif which mint >/dev/null; then\n    rm -f ${PROJECT_DIR}/iOSEngineerCodeCheckTests/MockResults.swift\n    xcrun --sdk macosx mint run mockolo mockolo --testable-imports iOSEngineerCodeCheck --sourcedirs ${PROJECT_DIR} --destination ${PROJECT_DIR}/iOSEngineerCodeCheckTests/MockResults.swift\nelse\n    echo \"warning: Mint not installed, download from https://github.com/yonaskolb/Mint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
