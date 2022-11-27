@@ -123,8 +123,6 @@ iOSInjectionProject/
 # ignore SwiftGen
 iOSEngineerCodeCheck/Generated/*.swift
 
-MockResults.swift
-
 ## Gcc Patch
 /*.gcno
 
