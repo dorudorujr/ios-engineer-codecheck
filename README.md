@@ -51,3 +51,10 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 ### セットアップ
 下記コマンドを実行してください
 `mint bootstrap`
+
+## 本家Reduxと違うところ
+### Single source of truth in function scope, not application scope
+本家のReduxではStoreがSingletonで存在し、そこに全画面のStateが格納されている  
+しかしこれをアプリでやろうとすると、パラメータ違いの同じ画面が複数開かれてる状態などに対応しづらい  
+( e.g. iOSのAppStoreのように複数のタブで別々の商品の詳細画面を開く)  
+そのため、基本的には機能or画面毎にStoreを分けている
