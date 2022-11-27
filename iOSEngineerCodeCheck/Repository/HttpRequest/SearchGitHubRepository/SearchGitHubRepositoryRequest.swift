@@ -14,3 +14,5 @@ extension SearchGitHubRepositoryRequestable {
 }
 
 struct SearchGitHubRepositoryRequest: SearchGitHubRepositoryRequestable {}
+
+typealias AnySearchGitHubRepositoryRequest = AnyRequest<SearchGitHubRepositoryParameter, RepositorySearchResponse>

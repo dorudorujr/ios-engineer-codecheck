@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReSwiftThunk
 
 class RepositoryDetailCoordinatyor: Coordinator {
     private weak var viewController: RepositoryDetailViewController!
@@ -17,7 +18,8 @@ class RepositoryDetailCoordinatyor: Coordinator {
     }
 
     func start(with parent: UIViewController) {
-        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(with: repositoryData)
+        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(with: .init(state: RepositoryDetailState(repositoryData: repositoryData),
+                                                                                       middleware: [createThunkMiddleware()]))
         parent.navigationController?.pushViewController(vc, animated: true)
         viewController = vc
     }

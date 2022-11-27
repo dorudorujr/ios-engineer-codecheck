@@ -13,3 +13,5 @@ struct Owner: Codable {
         case avatarUrl = "avatar_url"
     }
 }
+
+extension Owner: Equatable {}

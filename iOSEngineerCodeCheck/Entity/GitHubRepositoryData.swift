@@ -27,3 +27,5 @@ struct GitHubRepositoryData: Codable {
         case openIssuesCount = "open_issues_count"
     }
 }
+
+extension GitHubRepositoryData: Equatable {}
