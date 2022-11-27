@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// @mockable
 protocol Requestable {
     // typealiasにて定義必須
     associatedtype Parameter: Parameterizable
