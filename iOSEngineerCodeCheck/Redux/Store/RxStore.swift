@@ -56,6 +56,8 @@ extension RxStore where AnyStateType: Reducible {
     }
 }
 
+extension RxStore: ReactiveCompatible {}
+
 protocol Dispatchable: AnyObject {
     func dispatch(_ action: Action)
 }

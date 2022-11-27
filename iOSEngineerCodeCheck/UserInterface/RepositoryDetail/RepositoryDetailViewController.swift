@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxSwiftExt
 import Kingfisher
 
 class RepositoryDetailViewController: UIViewController {
+    typealias State = RepositoryDetailState
+    typealias Store = RxStore<State>
+    
     @IBOutlet weak private var avatarImageView: UIImageView!
     
     @IBOutlet weak private var titleLabel: UILabel!
@@ -21,36 +27,130 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var forksCountLabel: UILabel!
     @IBOutlet weak private var openIssuesCountLabel: UILabel!
     
-    var repositoryData: GitHubRepositoryData!
+    private var store: Store!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        titleLabel.text = repositoryData.fullName
-        languageLabel.text = "Written in \(repositoryData.language)"
-        stargazersCountLabel.text = "\(repositoryData.stargazersCount) stars"
-        wachersCountLabel.text = "\(repositoryData.watchersCount) watchers"
-        forksCountLabel.text = "\(repositoryData.forksCount) forks"
-        openIssuesCountLabel.text = "\(repositoryData.openIssuesCount) open issues"
-        
-        setUpAvatarImageView()
+        bind()
     }
     
-    private func setUpAvatarImageView() {
-        guard let imgURL = URL(string: repositoryData.owner.avatarUrl) else {
-            return
-        }
+    // MARK: - Rx
+    private let disposeBag = DisposeBag()
+    
+    private func bind() {
+        store.rx.fullName
+            .drive(titleLabel.rx.text)
+            .disposed(by: disposeBag)
         
-        DispatchQueue.main.async {
-            self.avatarImageView.kf.setImage(with: imgURL)
-        }
+        store.rx.language
+            .drive(languageLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        store.rx.stargazersCount
+            .drive(stargazersCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        store.rx.watchersCount
+            .drive(wachersCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        store.rx.forksCount
+            .drive(forksCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        store.rx.openIssuesCount
+            .drive(openIssuesCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        store.rx.avatarImage
+            .drive(onNext: { [weak self] value in
+                self?.avatarImageView.kf.setImage(with: value)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 extension RepositoryDetailViewController: DependencyInjectable {
-    typealias Dependency = GitHubRepositoryData
+    typealias Dependency = Store
     
-    func inject(with dependency: GitHubRepositoryData) {
-        repositoryData = dependency
+    func inject(with dependency: Dependency) {
+        store = dependency
+    }
+}
+
+extension Reactive where Base: RepositoryDetailViewController.Store {
+    var fullName: Driver<String> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.fullName)
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    var language: Driver<String> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.language)
+            .map { value in
+                "Written in \(value)"
+            }
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    var stargazersCount: Driver<String> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.stargazersCount)
+            .map { value in
+                "\(value) stars"
+            }
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    var watchersCount: Driver<String> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.watchersCount)
+            .map { value in
+                "\(value) watchers"
+            }
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    var forksCount: Driver<String> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.forksCount)
+            .map { value in
+                "\(value) forks"
+            }
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    var openIssuesCount: Driver<String> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.openIssuesCount)
+            .map { value in
+                "\(value) open issues"
+            }
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    var avatarImage: Driver<URL> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.owner.avatarUrl)
+            .map { value in
+                URL(string: value)
+            }
+            .unwrap()
+            .asDriver(onErrorDriveWith: .never())
     }
 }
