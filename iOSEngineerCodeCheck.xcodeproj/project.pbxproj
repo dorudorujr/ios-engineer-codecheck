@@ -18,6 +18,7 @@
 		159E750D292A6B96001B8685 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750C292A6B96001B8685 /* Coordinator.swift */; };
 		159E7510292A710C001B8685 /* RepositoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */; };
 		159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */; };
+		15A457C3293A1E67002068F9 /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 15A457C2293A1E67002068F9 /* iOSSnapshotTestCase */; };
 		15C158B3292F8B7400BA5710 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B2292F8B7400BA5710 /* Differentiator */; };
 		15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B4292F8B7400BA5710 /* RxDataSources */; };
 		15CA1104292CF59400941B76 /* RequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1103292CF59400941B76 /* RequestAction.swift */; };
@@ -140,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				157079AE292BAD0500E48161 /* RxTest in Frameworks */,
+				15A457C3293A1E67002068F9 /* iOSSnapshotTestCase in Frameworks */,
 				157079A6292BAD0500E48161 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +438,7 @@
 			packageProductDependencies = (
 				157079A5292BAD0500E48161 /* RxBlocking */,
 				157079AD292BAD0500E48161 /* RxTest */,
+				15A457C2293A1E67002068F9 /* iOSSnapshotTestCase */,
 			);
 			productName = iOSEngineerCodeCheckTests;
 			productReference = BFD945F1244DC5EB0012785A /* iOSEngineerCodeCheckTests.xctest */;
@@ -498,6 +501,7 @@
 				157079A4292BAD0500E48161 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				15CA111C292DD48E00941B76 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				15C158B1292F8B7400BA5710 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -968,6 +972,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uber/ios-snapshot-test-case.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		15C158B1292F8B7400BA5710 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
@@ -1029,6 +1041,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 157079A4292BAD0500E48161 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxTest;
+		};
+		15A457C2293A1E67002068F9 /* iOSSnapshotTestCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
+			productName = iOSSnapshotTestCase;
 		};
 		15C158B2292F8B7400BA5710 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
