@@ -18,7 +18,7 @@ class RepositoryListViewControllerSnapshotTests: FBSnapshotTestCase {
     
     func test_normal() {
         let request = RequestMock<SearchGitHubRepositoryParameter, RepositorySearchResponse>()
-        let store = RxStore<RepositoryListState>(state: nil, middleware: [])
+        let store = RxStore<RepositoryListState>(state: nil)
         store.dispatch(RepositoryListThunkCreator.Action.success(parameter: .init(searchWord: "searchWord"), response: .init(items: repositorys)))
         let vc = StoryboardScene.RepositoryList.initialScene.instantiate(with: (
             store: store,

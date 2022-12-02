@@ -16,7 +16,7 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
     
     override func setUp() {
         super.setUp()
-        recordMode = true
+        recordMode = false
         fileNameOptions = [.screenSize, .screenScale]
         KingfisherManager.shared.cache.store(.init(systemName: "square.and.arrow.up")!, forKey: cacheDummyURL)
     }
