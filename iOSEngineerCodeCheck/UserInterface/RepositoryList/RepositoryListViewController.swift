@@ -66,6 +66,12 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
                 }
             })
             .disposed(by: disposeBag)
+        
+        store.rx.isLoading
+            .drive(Binder(self) { _, isLoading in
+                isLoading ? LoadingView.show() : LoadingView.dismiss()
+            })
+            .disposed(by: disposeBag)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -124,6 +130,12 @@ extension RepositoryListViewController.SectionModel {
 }
 
 extension Reactive where Base: RepositoryListViewController.Store {
+    var isLoading: Driver<Bool> {
+        base.stateObservable.mapAt(\.isLoading)
+            .distinctUntilChanged()
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
     var error: Signal<Error> {
         base.stateObservable.mapAt(\.error)
             .unwrap()
