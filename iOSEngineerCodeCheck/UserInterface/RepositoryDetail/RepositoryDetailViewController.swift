@@ -31,6 +31,10 @@ class RepositoryDetailViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let favoriteButton = UIBarButtonItem(image: .init(systemName: "heart"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = favoriteButton
+        
         bind()
     }
     
@@ -67,6 +71,19 @@ class RepositoryDetailViewController: UIViewController {
                 self?.avatarImageView.kf.setImage(with: value)
             })
             .disposed(by: disposeBag)
+        
+        store.rx.isFavorite
+            .drive(Binder(self) { me, isFavorite in
+                me.navigationItem.rightBarButtonItem?.image = isFavorite ? .init(systemName: "heart.fill") : .init(systemName: "heart")
+            })
+            .disposed(by: disposeBag)
+        
+        navigationItem.rightBarButtonItem?.rx.tap
+            .bind(to: Binder(self) { me, _ in
+                me.store.dispatch(State.Action.changeFavorite(isFavorite: !me.store.state.isFavorite))
+            })
+            .disposed(by: disposeBag)
+            
     }
 }
 
@@ -79,6 +96,12 @@ extension RepositoryDetailViewController: DependencyInjectable {
 }
 
 extension Reactive where Base: RepositoryDetailViewController.Store {
+    var isFavorite: Driver<Bool> {
+        base.stateObservable.mapAt(\.isFavorite)
+            .distinctUntilChanged()
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
     var fullName: Driver<String> {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
