@@ -24,6 +24,8 @@
 		15A457CE293A2EFD002068F9 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CD293A2EFD002068F9 /* RequestMock.swift */; };
 		15A457D0293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */; };
 		15A457DF293B9D76002068F9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457DE293B9D76002068F9 /* LoadingView.swift */; };
+		15BB52152942057700B57674 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52142942057700B57674 /* Realm */; };
+		15BB52172942057700B57674 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52162942057700B57674 /* RealmSwift */; };
 		15C158B3292F8B7400BA5710 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B2292F8B7400BA5710 /* Differentiator */; };
 		15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B4292F8B7400BA5710 /* RxDataSources */; };
 		15CA1104292CF59400941B76 /* RequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1103292CF59400941B76 /* RequestAction.swift */; };
@@ -138,9 +140,11 @@
 				157079AA292BAD0500E48161 /* RxRelay in Frameworks */,
 				15E143C6291FA70500D980A3 /* Kingfisher in Frameworks */,
 				1570797F292BA9EB00E48161 /* ReSwift in Frameworks */,
+				15BB52152942057700B57674 /* Realm in Frameworks */,
 				15C158B3292F8B7400BA5710 /* Differentiator in Frameworks */,
 				157079A8292BAD0500E48161 /* RxCocoa in Frameworks */,
 				15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */,
+				15BB52172942057700B57674 /* RealmSwift in Frameworks */,
 				15CA111E292DD48E00941B76 /* RxSwiftExt in Frameworks */,
 				15707982292BAA4700E48161 /* ReSwiftThunk in Frameworks */,
 			);
@@ -463,6 +467,8 @@
 				15CA111D292DD48E00941B76 /* RxSwiftExt */,
 				15C158B2292F8B7400BA5710 /* Differentiator */,
 				15C158B4292F8B7400BA5710 /* RxDataSources */,
+				15BB52142942057700B57674 /* Realm */,
+				15BB52162942057700B57674 /* RealmSwift */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -549,6 +555,7 @@
 				15CA111C292DD48E00941B76 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				15C158B1292F8B7400BA5710 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */,
+				15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -1032,6 +1039,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 10.33.0;
+			};
+		};
 		15C158B1292F8B7400BA5710 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
@@ -1098,6 +1113,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
 			productName = iOSSnapshotTestCase;
+		};
+		15BB52142942057700B57674 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		15BB52162942057700B57674 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		15C158B2292F8B7400BA5710 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
