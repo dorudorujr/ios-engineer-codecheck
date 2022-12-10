@@ -20,6 +20,7 @@
 		159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */; };
 		159FA69D29449CA600B92DAD /* FavoriteListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FA69C29449CA600B92DAD /* FavoriteListCoordinator.swift */; };
 		159FA69F29449D1F00B92DAD /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FA69E29449D1F00B92DAD /* FavoriteListViewController.swift */; };
+		159FA6A129449D5D00B92DAD /* FavoriteList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 159FA6A029449D5D00B92DAD /* FavoriteList.storyboard */; };
 		15A457C3293A1E67002068F9 /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 15A457C2293A1E67002068F9 /* iOSSnapshotTestCase */; };
 		15A457C8293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457C7293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift */; };
 		15A457CB293A277C002068F9 /* FBSnapshotTestCase+verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CA293A277C002068F9 /* FBSnapshotTestCase+verify.swift */; };
@@ -90,6 +91,7 @@
 		159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		159FA69C29449CA600B92DAD /* FavoriteListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListCoordinator.swift; sourceTree = "<group>"; };
 		159FA69E29449D1F00B92DAD /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
+		159FA6A029449D5D00B92DAD /* FavoriteList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteList.storyboard; sourceTree = "<group>"; };
 		15A457C7293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		15A457CA293A277C002068F9 /* FBSnapshotTestCase+verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FBSnapshotTestCase+verify.swift"; sourceTree = "<group>"; };
 		15A457CD293A2EFD002068F9 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				159FA69C29449CA600B92DAD /* FavoriteListCoordinator.swift */,
 				159FA69E29449D1F00B92DAD /* FavoriteListViewController.swift */,
+				159FA6A029449D5D00B92DAD /* FavoriteList.storyboard */,
 			);
 			path = FavoriteList;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 			files = (
 				BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */,
 				15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */,
+				159FA6A129449D5D00B92DAD /* FavoriteList.storyboard in Resources */,
 				BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */,
 				BFD945E6244DC5E80012785A /* RepositoryList.storyboard in Resources */,
 			);
