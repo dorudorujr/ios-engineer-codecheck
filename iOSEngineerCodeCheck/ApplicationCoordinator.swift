@@ -12,12 +12,19 @@ class ApplicationCoordinator {
     private weak var repositoryListCoordinator: RepositoryListCoordinator?
     
     func start(with window: UIWindow) {
-        let root = UIViewController()
+        let root = UITabBarController()
+        let repositoryListCoordinator = RepositoryListCoordinator()
+        repositoryListCoordinator.make()
+        guard let repositoryListVC = repositoryListCoordinator.viewController else { return }
+        repositoryListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        
+        let repositoryListNC = UINavigationController(rootViewController: repositoryListVC)
+        repositoryListNC.modalPresentationStyle = .fullScreen
+        
+        root.viewControllers = [repositoryListNC]
         window.rootViewController = root
         window.makeKeyAndVisible()
 
-        let coordinator = RepositoryListCoordinator()
-        coordinator.start(with: root)
-        repositoryListCoordinator = coordinator
+        self.repositoryListCoordinator = repositoryListCoordinator
     }
 }
