@@ -9,7 +9,7 @@
 import UIKit
 import ReSwiftThunk
 
-class RepositoryDetailCoordinatyor: Coordinator {
+class RepositoryDetailCoordinatyor: SecondaryCoordinator {
     private weak var viewController: RepositoryDetailViewController!
     private let repositoryData: GitHubRepositoryData
 

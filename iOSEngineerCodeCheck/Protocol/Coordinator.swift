@@ -8,6 +8,14 @@
 
 import UIKit
 
-public protocol Coordinator: AnyObject {
+protocol Coordinator: AnyObject {}
+
+// Top画面のTabBarControllerの上に乗るViewControllerのCoordinator
+protocol TopCoordinator: Coordinator {
+    func make()
+}
+
+// Top画面以降のViewControllerのCoordinator
+protocol SecondaryCoordinator: Coordinator {
     func start(with parent: UIViewController)
 }

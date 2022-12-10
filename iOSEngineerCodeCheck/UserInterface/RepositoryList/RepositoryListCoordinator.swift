@@ -9,21 +9,19 @@
 import UIKit
 import ReSwiftThunk
 
-class RepositoryListCoordinator: Coordinator {
-    private weak var viewController: RepositoryListViewController!
+class RepositoryListCoordinator: TopCoordinator {
     private weak var repositoryDetailCoordinator: RepositoryDetailCoordinatyor?
+    
+    private(set) weak var viewController: RepositoryListViewController?
     
     init() {}
     
-    func start(with parent: UIViewController) {
+    func make() {
         let vc = StoryboardScene.RepositoryList.initialScene.instantiate(with: (
             store: .init(state: nil, middleware: [createThunkMiddleware()]),
             coordinator: self,
             requestThunkCreator: .init(request: .init(SearchGitHubRepositoryRequest()))
         ))
-        let nc = UINavigationController(rootViewController: vc)
-        nc.modalPresentationStyle = .fullScreen
-        parent.present(nc, animated: false)
         viewController = vc
     }
 }
@@ -31,6 +29,7 @@ class RepositoryListCoordinator: Coordinator {
 extension RepositoryListCoordinator: RepositoryListCoordinatorDelegate {
     func showDetail(with repositoryData: GitHubRepositoryData) {
         let coordinator = RepositoryDetailCoordinatyor(repositoryData: repositoryData)
+        guard let viewController = viewController else { return }
         coordinator.start(with: viewController)
         repositoryDetailCoordinator = coordinator
     }
