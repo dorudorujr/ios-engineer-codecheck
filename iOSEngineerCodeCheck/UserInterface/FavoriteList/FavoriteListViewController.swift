@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxDataSources
 import RxCocoa
+import RxSwiftExt
 
 protocol FavoriteListCoordinatorDelegate: AnyObject {
     func showDetail(with repositoryData: GitHubRepositoryData)
@@ -26,6 +27,7 @@ class FavoriteListViewController: UIViewController {
     private var coordinator: Coordinator!
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,16 @@ class FavoriteListViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        store.rx.shouldShowEmptyView
+            .drive(tableView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        store.rx.shouldShowEmptyView
+            .not()
+            .drive(emptyView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
     }
     
     private lazy var dataSource = DataSource(
@@ -104,6 +116,13 @@ extension FavoriteListViewController.SectionModel {
 }
 
 extension Reactive where Base: FavoriteListViewController.Store {
+    var shouldShowEmptyView: Driver<Bool> {
+        base.stateObservable.mapAt(\.repositorys)
+            .distinctUntilChanged()
+            .map(\.isEmpty)
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
     private var firstSection: Observable<FavoriteListViewController.SectionModel> {
         base.stateObservable.mapAt(\.repositorys)
             .distinctUntilChanged()

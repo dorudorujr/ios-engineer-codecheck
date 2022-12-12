@@ -16,6 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3f-ZG-oNJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お気に入りが存在しません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7w-ms-ibi">
+                                        <rect key="frame" x="103" y="398.5" width="208" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="k7w-ms-ibi" firstAttribute="centerX" secondItem="l3f-ZG-oNJ" secondAttribute="centerX" id="C71-64-ovJ"/>
+                                    <constraint firstItem="k7w-ms-ibi" firstAttribute="centerY" secondItem="l3f-ZG-oNJ" secondAttribute="centerY" id="hcS-kH-1BO"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Q1F-Ac-hmP">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -50,13 +66,18 @@
                         <viewLayoutGuide key="safeArea" id="NEI-T3-tRK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="NEI-T3-tRK" firstAttribute="bottom" secondItem="l3f-ZG-oNJ" secondAttribute="bottom" id="13F-0A-6fe"/>
                             <constraint firstItem="Q1F-Ac-hmP" firstAttribute="top" secondItem="NEI-T3-tRK" secondAttribute="top" id="5zD-eE-1jz"/>
                             <constraint firstItem="Q1F-Ac-hmP" firstAttribute="leading" secondItem="NEI-T3-tRK" secondAttribute="leading" id="K9x-gt-UP0"/>
+                            <constraint firstItem="l3f-ZG-oNJ" firstAttribute="leading" secondItem="NEI-T3-tRK" secondAttribute="leading" id="YlK-F9-psj"/>
+                            <constraint firstItem="l3f-ZG-oNJ" firstAttribute="top" secondItem="NEI-T3-tRK" secondAttribute="top" id="boN-r5-gZQ"/>
+                            <constraint firstItem="NEI-T3-tRK" firstAttribute="trailing" secondItem="l3f-ZG-oNJ" secondAttribute="trailing" id="n1H-vE-u0J"/>
                             <constraint firstItem="NEI-T3-tRK" firstAttribute="bottom" secondItem="Q1F-Ac-hmP" secondAttribute="bottom" id="pvd-1J-laf"/>
                             <constraint firstItem="NEI-T3-tRK" firstAttribute="trailing" secondItem="Q1F-Ac-hmP" secondAttribute="trailing" id="rz1-rE-j0g"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyView" destination="l3f-ZG-oNJ" id="Xlq-QZ-TTv"/>
                         <outlet property="tableView" destination="Q1F-Ac-hmP" id="qfl-ZU-7vM"/>
                     </connections>
                 </viewController>
