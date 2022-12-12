@@ -32,7 +32,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "Root View Controller"
+        title = "検索画面"
         navigationItem.largeTitleDisplayMode = .always
         searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
         searchBar.delegate = self

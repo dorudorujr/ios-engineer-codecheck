@@ -14,14 +14,21 @@ class ApplicationCoordinator {
     func start(with window: UIWindow) {
         let root = UITabBarController()
         let repositoryListCoordinator = RepositoryListCoordinator()
+        let favoriteListCoordinator = FavoriteListCoordinator()
         repositoryListCoordinator.make()
-        guard let repositoryListVC = repositoryListCoordinator.viewController else { return }
+        favoriteListCoordinator.make()
+        guard let repositoryListVC = repositoryListCoordinator.viewController,
+              let favoriteListVC = favoriteListCoordinator.viewController else { return }
         repositoryListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        favoriteListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
         
         let repositoryListNC = UINavigationController(rootViewController: repositoryListVC)
         repositoryListNC.modalPresentationStyle = .fullScreen
         
-        root.viewControllers = [repositoryListNC]
+        let favoriteListNC = UINavigationController(rootViewController: favoriteListVC)
+        favoriteListNC.modalPresentationStyle = .fullScreen
+        
+        root.viewControllers = [repositoryListNC, favoriteListNC]
         window.rootViewController = root
         window.makeKeyAndVisible()
 
