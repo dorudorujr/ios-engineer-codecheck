@@ -54,6 +54,12 @@ class FavoriteListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        tableView.rx.itemSelected
+            .bind(to: Binder(self) { me, indexPath in
+                me.tableView.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         store.rx.shouldShowEmptyView
             .drive(tableView.rx.isHidden)
             .disposed(by: disposeBag)
