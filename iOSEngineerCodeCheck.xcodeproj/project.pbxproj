@@ -32,6 +32,7 @@
 		15BB52172942057700B57674 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52162942057700B57674 /* RealmSwift */; };
 		15BF5B3429477B0A001E353C /* OwnerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3329477B0A001E353C /* OwnerObject.swift */; };
 		15BF5B3629477C03001E353C /* GitHubRepositoryDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3529477C03001E353C /* GitHubRepositoryDataObject.swift */; };
+		15BF5B3A29477EAD001E353C /* FavoriteRepositoryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */; };
 		15C158B3292F8B7400BA5710 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B2292F8B7400BA5710 /* Differentiator */; };
 		15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B4292F8B7400BA5710 /* RxDataSources */; };
 		15CA1104292CF59400941B76 /* RequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1103292CF59400941B76 /* RequestAction.swift */; };
@@ -103,6 +104,7 @@
 		15A457DE293B9D76002068F9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		15BF5B3329477B0A001E353C /* OwnerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerObject.swift; sourceTree = "<group>"; };
 		15BF5B3529477C03001E353C /* GitHubRepositoryDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDataObject.swift; sourceTree = "<group>"; };
+		15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataRepository.swift; sourceTree = "<group>"; };
 		15CA1103292CF59400941B76 /* RequestAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAction.swift; sourceTree = "<group>"; };
 		15CA1107292CF78B00941B76 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		15CA1109292CF81000941B76 /* Reducible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducible.swift; sourceTree = "<group>"; };
@@ -253,6 +255,22 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		15BF5B3729477D95001E353C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				15BF5B3829477DB6001E353C /* FavoriteRepositoryDataRepository */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		15BF5B3829477DB6001E353C /* FavoriteRepositoryDataRepository */ = {
+			isa = PBXGroup;
+			children = (
+				15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */,
+			);
+			path = FavoriteRepositoryDataRepository;
+			sourceTree = "<group>";
+		};
 		15CA1100292CF4F000941B76 /* Redux */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +392,7 @@
 		15E143C7291FE19D00D980A3 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				15BF5B3729477D95001E353C /* Realm */,
 				15E143C8291FE26B00D980A3 /* HttpRequest */,
 			);
 			path = Repository;
@@ -705,6 +724,7 @@
 				15CA110C292CF8D100941B76 /* Event.swift in Sources */,
 				BFD945E3244DC5E80012785A /* RepositoryListViewController.swift in Sources */,
 				15CA1104292CF59400941B76 /* RequestAction.swift in Sources */,
+				15BF5B3A29477EAD001E353C /* FavoriteRepositoryDataRepository.swift in Sources */,
 				159FA69D29449CA600B92DAD /* FavoriteListCoordinator.swift in Sources */,
 				159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailViewController.swift in Sources */,
