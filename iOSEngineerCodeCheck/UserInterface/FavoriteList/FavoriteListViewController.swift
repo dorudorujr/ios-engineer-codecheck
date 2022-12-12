@@ -15,7 +15,7 @@ protocol FavoriteListCoordinatorDelegate: AnyObject {
     func showDetail(with repositoryData: GitHubRepositoryData)
 }
 
-class FavoriteListViewController: UITableViewController {
+class FavoriteListViewController: UIViewController {
     typealias State = FavoriteListState
     typealias Store = RxStore<State>
     typealias Coordinator = FavoriteListCoordinatorDelegate
@@ -25,12 +25,12 @@ class FavoriteListViewController: UITableViewController {
     private var store: Store!
     private var coordinator: Coordinator!
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "お気に入り画面"
         navigationItem.largeTitleDisplayMode = .always
-        tableView.dataSource = nil
-        tableView.delegate = nil
         
         bind()
     }
