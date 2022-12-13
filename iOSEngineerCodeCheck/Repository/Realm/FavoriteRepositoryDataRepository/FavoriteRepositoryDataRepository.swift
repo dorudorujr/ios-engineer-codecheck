@@ -13,6 +13,7 @@ protocol FavoriteRepositoryDataRepository {
     func repositorys() -> [GitHubRepositoryData]
     func add(_ repository: GitHubRepositoryData) throws
     func delete(_ repository: GitHubRepositoryData) throws
+    func isFavorite(_ repository: GitHubRepositoryData) -> Bool
 }
 
 struct FavoriteRepositoryDataRepositoryImpl: FavoriteRepositoryDataRepository {
@@ -55,5 +56,10 @@ struct FavoriteRepositoryDataRepositoryImpl: FavoriteRepositoryDataRepository {
         try realm.write {
             realm.delete(resultObject)
         }
+    }
+    
+    func isFavorite(_ repository: GitHubRepositoryData) -> Bool {
+        let resultObject = realm.objects(GitHubRepositoryDataObject.self).filter("id == %@", repository.id).first
+        return resultObject != nil
     }
 }
