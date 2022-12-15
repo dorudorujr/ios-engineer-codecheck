@@ -25,6 +25,7 @@ class FavoriteListViewController: UIViewController {
     
     private var store: Store!
     private var coordinator: Coordinator!
+    private var favoriteThunkCreator: FavoriteRepositoryDataThunkCreator!
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
@@ -35,6 +36,7 @@ class FavoriteListViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         
         bind()
+        store.dispatch(favoriteThunkCreator.repositorys())
     }
     
     // MARK: - Rx
@@ -86,11 +88,12 @@ class FavoriteListViewController: UIViewController {
 }
 
 extension FavoriteListViewController: DependencyInjectable {
-    typealias Dependency = (store: Store, coordinator: Coordinator)
+    typealias Dependency = (store: Store, coordinator: Coordinator, favoriteThunkCreator: FavoriteRepositoryDataThunkCreator)
     
     func inject(with dependency: Dependency) {
         store = dependency.store
         coordinator = dependency.coordinator
+        favoriteThunkCreator = dependency.favoriteThunkCreator
     }
 }
 
