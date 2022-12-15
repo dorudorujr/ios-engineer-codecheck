@@ -36,6 +36,10 @@ class FavoriteListViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         store.dispatch(favoriteThunkCreator.repositorys())
     }
     
