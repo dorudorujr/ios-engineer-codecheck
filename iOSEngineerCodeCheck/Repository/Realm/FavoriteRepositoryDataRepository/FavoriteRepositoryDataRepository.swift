@@ -24,7 +24,7 @@ struct FavoriteRepositoryDataRepositoryImpl: FavoriteRepositoryDataRepository {
         return results.map {
             .init(id: $0.id,
                   fullName: $0.fullName,
-                  owner: .init(avatarUrl: $0.owner.avatarUrl),
+                  owner: .init(avatarUrl: $0.owner?.avatarUrl ?? ""),
                   stargazersCount: $0.stargazersCount,
                   watchersCount: $0.watchersCount,
                   language: $0.language,

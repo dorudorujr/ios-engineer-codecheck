@@ -12,7 +12,7 @@ import RealmSwift
 class GitHubRepositoryDataObject: Object {
     @objc dynamic var id = 0
     @objc dynamic var fullName = ""
-    @objc dynamic var owner = OwnerObject()
+    @objc dynamic var owner: OwnerObject?
     @objc dynamic var stargazersCount = 0
     @objc dynamic var watchersCount = 0
     @objc dynamic var language = ""
