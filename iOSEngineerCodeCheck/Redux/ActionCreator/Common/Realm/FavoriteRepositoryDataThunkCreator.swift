@@ -20,7 +20,7 @@ class FavoriteRepositoryDataThunkCreator {
     
     func repositorys<State: Reducible>() -> Thunk<State> {
         .init { dispatch, _ in
-            dispatch(Action.getSuccess(repository: self.repository.repositorys()))
+            dispatch(Action.getSuccess(repositorys: self.repository.repositorys()))
         }
     }
     
