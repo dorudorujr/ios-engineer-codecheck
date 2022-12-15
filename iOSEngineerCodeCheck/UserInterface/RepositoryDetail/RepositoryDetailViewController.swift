@@ -28,6 +28,7 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var openIssuesCountLabel: UILabel!
     
     private var store: Store!
+    private var favoriteThunkCreator: FavoriteRepositoryDataThunkCreator!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,10 @@ class RepositoryDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = favoriteButton
         
         bind()
+        guard let repositoryData = store.state.repositoryData else {
+            return
+        }
+        store.dispatch(favoriteThunkCreator.isFavorite(repositoryData))
     }
     
     // MARK: - Rx
@@ -80,7 +85,10 @@ class RepositoryDetailViewController: UIViewController {
         
         navigationItem.rightBarButtonItem?.rx.tap
             .bind(to: Binder(self) { me, _ in
-                me.store.dispatch(State.Action.changeFavorite(isFavorite: !me.store.state.isFavorite))
+                guard let repositoryData = me.store.state.repositoryData else {
+                    return
+                }
+                me.store.dispatch(me.favoriteThunkCreator.changeFavoriteStatus(of: repositoryData))
             })
             .disposed(by: disposeBag)
             
@@ -88,10 +96,11 @@ class RepositoryDetailViewController: UIViewController {
 }
 
 extension RepositoryDetailViewController: DependencyInjectable {
-    typealias Dependency = Store
+    typealias Dependency = (store: Store, favoriteThunkCreator: FavoriteRepositoryDataThunkCreator)
     
     func inject(with dependency: Dependency) {
-        store = dependency
+        store = dependency.store
+        favoriteThunkCreator = dependency.favoriteThunkCreator
     }
 }
 
