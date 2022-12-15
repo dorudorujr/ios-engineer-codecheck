@@ -28,6 +28,8 @@
 		15A457CE293A2EFD002068F9 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CD293A2EFD002068F9 /* RequestMock.swift */; };
 		15A457D0293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */; };
 		15A457DF293B9D76002068F9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457DE293B9D76002068F9 /* LoadingView.swift */; };
+		15B4C8492948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */; };
+		15B4C84D2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */; };
 		15BB52152942057700B57674 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52142942057700B57674 /* Realm */; };
 		15BB52172942057700B57674 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52162942057700B57674 /* RealmSwift */; };
 		15BF5B3429477B0A001E353C /* OwnerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3329477B0A001E353C /* OwnerObject.swift */; };
@@ -102,6 +104,8 @@
 		15A457CD293A2EFD002068F9 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
 		15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		15A457DE293B9D76002068F9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataThunkCreator.swift; sourceTree = "<group>"; };
+		15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataAction.swift; sourceTree = "<group>"; };
 		15BF5B3329477B0A001E353C /* OwnerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerObject.swift; sourceTree = "<group>"; };
 		15BF5B3529477C03001E353C /* GitHubRepositoryDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDataObject.swift; sourceTree = "<group>"; };
 		15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataRepository.swift; sourceTree = "<group>"; };
@@ -246,6 +250,22 @@
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
+		15B4C84A2948A66000FC2C85 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		15B4C84B2948A67A00FC2C85 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		15BF5B32294778DA001E353C /* Realm */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +313,7 @@
 		15CA1102292CF58100941B76 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				15B4C84B2948A67A00FC2C85 /* Realm */,
 				15CA1103292CF59400941B76 /* RequestAction.swift */,
 			);
 			path = Common;
@@ -331,6 +352,7 @@
 		15CA110E292D02D400941B76 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				15B4C84A2948A66000FC2C85 /* Realm */,
 				15CA110F292D02EB00941B76 /* RequestThunkCreator.swift */,
 			);
 			path = Common;
@@ -709,10 +731,12 @@
 				15CA111B292DC6D800941B76 /* RepositoryListState.swift in Sources */,
 				15BF5B3429477B0A001E353C /* OwnerObject.swift in Sources */,
 				159E750D292A6B96001B8685 /* Coordinator.swift in Sources */,
+				15B4C84D2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift in Sources */,
 				15CA1113292D237000941B76 /* RxStore.swift in Sources */,
 				15CA110A292CF81000941B76 /* Reducible.swift in Sources */,
 				15CFE73729310DAA00A550A0 /* RepositoryDetailState.swift in Sources */,
 				15CA1108292CF78B00941B76 /* LoadingState.swift in Sources */,
+				15B4C8492948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift in Sources */,
 				15CA1119292DC5B100941B76 /* RepositoryListThunkCreator.swift in Sources */,
 				15BF5B3629477C03001E353C /* GitHubRepositoryDataObject.swift in Sources */,
 				159FA6A32944B12B00B92DAD /* FavoriteListState.swift in Sources */,
