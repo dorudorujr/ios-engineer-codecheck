@@ -15,20 +15,12 @@ struct RepositoryDetailState {
     private(set) var error: Event<Error>?
 }
 
-extension RepositoryDetailState {
-    enum Action: ReSwift.Action {
-        case changeFavorite(isFavorite: Bool)
-    }
-}
-
 extension RepositoryDetailState: Reducible {
     static var reducer: Reducer<RepositoryDetailState> {
         { action, state in
             var state = state ?? .init()
             
             switch action {
-            case let action as RepositoryDetailState.Action:
-                state.reduce(action: action)
             case let action as FavoriteRepositoryDataThunkCreator.Action:
                 state.reduce(favoriteAction: action)
             default:
@@ -36,13 +28,6 @@ extension RepositoryDetailState: Reducible {
             }
             
             return state
-        }
-    }
-    
-    private mutating func reduce(action: RepositoryDetailState.Action) {
-        switch action {
-        case let .changeFavorite(isFavorite):
-            self.isFavorite = isFavorite
         }
     }
     
