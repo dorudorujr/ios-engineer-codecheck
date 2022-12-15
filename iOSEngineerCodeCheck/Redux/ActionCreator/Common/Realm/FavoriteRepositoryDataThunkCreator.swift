@@ -24,22 +24,17 @@ class FavoriteRepositoryDataThunkCreator {
         }
     }
     
-    func add<State: Reducible>(_ repository: GitHubRepositoryData) throws -> Thunk<State> {
+    func changeFavoriteStatus<State: Reducible>(of repository: GitHubRepositoryData) -> Thunk<State> {
         .init { dispatch, _ in
             do {
-                try self.repository.add(repository)
-                dispatch(Action.additionalSuccess)
-            } catch {
-                dispatch(Action.realmFailure(error: error))
-            }
-        }
-    }
-    
-    func delete<State>(_ repository: GitHubRepositoryData) throws -> Thunk<State> {
-        .init { dispatch, _ in
-            do {
-                try self.repository.delete(repository)
-                dispatch(Action.deletionSuccess)
+                let isFavorite = self.repository.isFavorite(repository)
+                if isFavorite {
+                    try self.repository.delete(repository)
+                    dispatch(Action.deletionSuccess)
+                } else {
+                    try self.repository.add(repository)
+                    dispatch(Action.additionalSuccess)
+                }
             } catch {
                 dispatch(Action.realmFailure(error: error))
             }
