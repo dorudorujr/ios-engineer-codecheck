@@ -26,6 +26,8 @@ extension FavoriteListState: Reducible {
             switch action {
             case let action as FavoriteListState.Action:
                 state.reduce(action: action)
+            case let action as FavoriteRepositoryDataThunkCreator.Action:
+                state.reduce(favoriteAction: action)
             default:
                 break
             }
@@ -38,6 +40,16 @@ extension FavoriteListState: Reducible {
         switch action {
         case let .setRepositorys(repositorys):
             self.repositorys = repositorys
+        }
+    }
+    
+    private mutating func reduce(favoriteAction: FavoriteRepositoryDataThunkCreator.Action) {
+        switch favoriteAction {
+        case let .getSuccess(repositorys):
+            self.repositorys = repositorys
+        default:
+            break
+            
         }
     }
 }

@@ -18,8 +18,11 @@ class RepositoryDetailCoordinatyor: SecondaryCoordinator {
     }
 
     func start(with parent: UIViewController) {
-        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(with: .init(state: RepositoryDetailState(repositoryData: repositoryData),
-                                                                                       middleware: [createThunkMiddleware()]))
+        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(with: (
+            store: .init(state: RepositoryDetailState(repositoryData: repositoryData),
+                         middleware: [createThunkMiddleware()]),
+            favoriteThunkCreator: .init(repository: FavoriteRepositoryDataRepositoryImpl())
+        ))
         parent.navigationController?.pushViewController(vc, animated: true)
         viewController = vc
     }

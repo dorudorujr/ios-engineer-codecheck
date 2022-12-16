@@ -12,12 +12,7 @@ import RxSwift
 struct RepositoryDetailState {
     private(set) var repositoryData: GitHubRepositoryData?
     private(set) var isFavorite = false
-}
-
-extension RepositoryDetailState {
-    enum Action: ReSwift.Action {
-        case changeFavorite(isFavorite: Bool)
-    }
+    private(set) var error: Event<Error>?
 }
 
 extension RepositoryDetailState: Reducible {
@@ -26,8 +21,8 @@ extension RepositoryDetailState: Reducible {
             var state = state ?? .init()
             
             switch action {
-            case let action as RepositoryDetailState.Action:
-                state.reduce(action: action)
+            case let action as FavoriteRepositoryDataThunkCreator.Action:
+                state.reduce(favoriteAction: action)
             default:
                 break
             }
@@ -36,10 +31,19 @@ extension RepositoryDetailState: Reducible {
         }
     }
     
-    private mutating func reduce(action: RepositoryDetailState.Action) {
-        switch action {
+    private mutating func reduce(favoriteAction: FavoriteRepositoryDataThunkCreator.Action) {
+        switch favoriteAction {
+        case .additionalSuccess:
+            isFavorite = true
+        case .deletionSuccess:
+            isFavorite = false
         case let .changeFavorite(isFavorite):
             self.isFavorite = isFavorite
+        case let .realmFailure(error):
+            self.error = .init(rawValue: error)
+        default:
+            break
+            
         }
     }
 }

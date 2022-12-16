@@ -19,7 +19,8 @@ class FavoriteListCoordinator: TopCoordinator {
     func make() {
         let vc = StoryboardScene.FavoriteList.initialScene.instantiate(with: (
             store: .init(state: nil, middleware: [createThunkMiddleware()]),
-            coordinator: self
+            coordinator: self,
+            favoriteThunkCreator: .init(repository: FavoriteRepositoryDataRepositoryImpl())
         ))
         viewController = vc
     }
