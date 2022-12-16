@@ -10,6 +10,7 @@
 import XCTest
 import iOSSnapshotTestCase
 import Kingfisher
+import RealmSwift
 
 class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
     let cacheDummyURL = "https://avatar/dummy/url"
@@ -19,6 +20,7 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
         recordMode = false
         fileNameOptions = [.screenSize, .screenScale]
         KingfisherManager.shared.cache.store(.init(systemName: "square.and.arrow.up")!, forKey: cacheDummyURL)
+        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
     }
     
     override func tearDown() {
@@ -26,7 +28,7 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
         KingfisherManager.shared.cache.removeImage(forKey: cacheDummyURL)
     }
     
-    func test_normal() {
+    func test_NotFavorite() {
         let repository = GitHubRepositoryData(id: 1,
                                               fullName: "apple/swift",
                                               owner: .init(avatarUrl: cacheDummyURL),
@@ -35,7 +37,10 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
                                               language: "C++",
                                               forksCount: 9836,
                                               openIssuesCount: 6243)
-        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(with: .init(state: .init(repositoryData: repository)))
+        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(
+            with: (store: .init(state: .init(repositoryData: repository)),
+                   favoriteThunkCreator: .init(repository: FavoriteRepositoryDataRepositoryImpl()))
+        )
         verify(vc: vc)
     }
 }
