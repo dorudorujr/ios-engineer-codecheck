@@ -19,25 +19,6 @@ class RepositoryListStoreTests: XCTestCase {
     
     lazy var sectionsSpy = scheduler.createObserver([RepositoryListViewController.SectionModel].self)
     
-    let repositorys: [GitHubRepositoryData] = [
-        .init(id: 1,
-              fullName: "apple/swift",
-              owner: .init(avatarUrl: "url"),
-              stargazersCount: 61196,
-              watchersCount: 61196,
-              language: "C++",
-              forksCount: 9836,
-              openIssuesCount: 6243),
-        .init(id: 2,
-              fullName: "tensorflow/swift",
-              owner: .init(avatarUrl: "url"),
-              stargazersCount: 6068,
-              watchersCount: 6068,
-              language: "Jupyter Notebook",
-              forksCount: 623,
-              openIssuesCount: 37)
-    ]
-    
     override func setUp() {
         super.setUp()
         
