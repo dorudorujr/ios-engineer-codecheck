@@ -29,6 +29,7 @@
 		15A457D0293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */; };
 		15A457DF293B9D76002068F9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457DE293B9D76002068F9 /* LoadingView.swift */; };
 		15A552FF294CBE80003448C3 /* FavoriteListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */; };
+		15A55301294CC403003448C3 /* FavoriteListStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */; };
 		15B4C8492948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */; };
 		15B4C84D2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */; };
 		15BB52152942057700B57674 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52142942057700B57674 /* Realm */; };
@@ -106,6 +107,7 @@
 		15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		15A457DE293B9D76002068F9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewControllerTests.swift; sourceTree = "<group>"; };
+		15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListStoreTests.swift; sourceTree = "<group>"; };
 		15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataThunkCreator.swift; sourceTree = "<group>"; };
 		15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataAction.swift; sourceTree = "<group>"; };
 		15BF5B3329477B0A001E353C /* OwnerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerObject.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				15CFE73929333EDA00A550A0 /* RepositoryListStoreTests.swift */,
+				15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				15A457C8293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift in Sources */,
 				15A552FF294CBE80003448C3 /* FavoriteListViewControllerTests.swift in Sources */,
 				15A457D0293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift in Sources */,
+				15A55301294CC403003448C3 /* FavoriteListStoreTests.swift in Sources */,
 				15CFE73A29333EDA00A550A0 /* RepositoryListStoreTests.swift in Sources */,
 				15A457CE293A2EFD002068F9 /* RequestMock.swift in Sources */,
 			);
