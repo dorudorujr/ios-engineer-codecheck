@@ -20,7 +20,6 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
         recordMode = false
         fileNameOptions = [.screenSize, .screenScale]
         KingfisherManager.shared.cache.store(.init(systemName: "square.and.arrow.up")!, forKey: cacheDummyURL)
-        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
     }
     
     override func tearDown() {
