@@ -43,5 +43,22 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
         )
         verify(vc: vc)
     }
+    
+    func test_favorite() {
+        let repository = GitHubRepositoryData(id: 1,
+                                              fullName: "apple/swift",
+                                              owner: .init(avatarUrl: cacheDummyURL),
+                                              stargazersCount: 61196,
+                                              watchersCount: 61196,
+                                              language: "C++",
+                                              forksCount: 9836,
+                                              openIssuesCount: 6243)
+        let favoriteRepository = FavoriteRepositoryDataRepositoryImpl()
+        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(
+            with: (store: .init(state: .init(repositoryData: repository, isFavorite: true)),
+                   favoriteThunkCreator: .init(repository: favoriteRepository))
+        )
+        verify(vc: vc)
+    }
 }
 
