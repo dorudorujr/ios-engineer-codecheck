@@ -28,7 +28,7 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
         KingfisherManager.shared.cache.removeImage(forKey: cacheDummyURL)
     }
     
-    func test_NotFavorite() {
+    func test_not_favorite() {
         let repository = GitHubRepositoryData(id: 1,
                                               fullName: "apple/swift",
                                               owner: .init(avatarUrl: cacheDummyURL),
