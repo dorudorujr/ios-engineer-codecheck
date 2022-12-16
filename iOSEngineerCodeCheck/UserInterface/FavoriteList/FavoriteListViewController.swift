@@ -66,12 +66,11 @@ class FavoriteListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        store.rx.shouldShowEmptyView
+        store.rx.shouldHideTableView
             .drive(tableView.rx.isHidden)
             .disposed(by: disposeBag)
         
-        store.rx.shouldShowEmptyView
-            .not()
+        store.rx.shouldHideEmptyView
             .drive(emptyView.rx.isHidden)
             .disposed(by: disposeBag)
         
@@ -129,10 +128,20 @@ extension FavoriteListViewController.SectionModel {
 }
 
 extension Reactive where Base: FavoriteListViewController.Store {
-    var shouldShowEmptyView: Driver<Bool> {
+    private var isEmptyRepositorys: Observable<Bool> {
         base.stateObservable.mapAt(\.repositorys)
             .distinctUntilChanged()
             .map(\.isEmpty)
+    }
+    
+    var shouldHideEmptyView: Driver<Bool> {
+        isEmptyRepositorys
+            .not()
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    var shouldHideTableView: Driver<Bool> {
+        isEmptyRepositorys
             .asDriver(onErrorDriveWith: .never())
     }
     
