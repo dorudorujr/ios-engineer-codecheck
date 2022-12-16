@@ -123,6 +123,9 @@ iOSInjectionProject/
 # ignore SwiftGen
 iOSEngineerCodeCheck/Generated/*.swift
 
+# SnapshotTest
+iOSEngineerCodeCheckTests/FailureDiffs
+
 ## Gcc Patch
 /*.gcno
 
