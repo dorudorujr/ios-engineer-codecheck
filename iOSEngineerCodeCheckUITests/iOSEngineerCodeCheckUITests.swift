@@ -41,6 +41,7 @@ class iOSEngineerCodeCheckUITests: XCTestCase {
         cell.tap()
         sleep(2)
         
+        XCTAssertTrue(app.navigationBars["検索画面"].buttons["love"].exists)
         XCTAssertTrue(app.images["AvatarImage"].exists)
         XCTAssertTrue(app.staticTexts["TitleLabel"].exists)
         XCTAssertTrue(app.staticTexts["LanguageLabel"].exists)
