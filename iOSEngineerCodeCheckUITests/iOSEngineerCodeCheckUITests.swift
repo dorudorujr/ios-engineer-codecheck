@@ -7,11 +7,13 @@
 //
 
 import XCTest
+import RealmSwift
 
 class iOSEngineerCodeCheckUITests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
         XCUIApplication().launch()
     }
     
