@@ -31,7 +31,6 @@
 		15A552FF294CBE80003448C3 /* FavoriteListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */; };
 		15A55301294CC403003448C3 /* FavoriteListStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */; };
 		15A55303294DA0EE003448C3 /* RepositoryDetailStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */; };
-		15A55306294DAAE3003448C3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 15A55305294DAAE3003448C3 /* RealmSwift */; };
 		15A55309294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55308294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift */; };
 		15B4C8492948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */; };
 		15B4C84D2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */; };
@@ -191,7 +190,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15A55306294DAAE3003448C3 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,7 +615,6 @@
 			);
 			name = iOSEngineerCodeCheckUITests;
 			packageProductDependencies = (
-				15A55305294DAAE3003448C3 /* RealmSwift */,
 			);
 			productName = iOSEngineerCodeCheckUITests;
 			productReference = BFD945FC244DC5EB0012785A /* iOSEngineerCodeCheckUITests.xctest */;
@@ -1234,11 +1231,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
 			productName = iOSSnapshotTestCase;
-		};
-		15A55305294DAAE3003448C3 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 		15BB52142942057700B57674 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
