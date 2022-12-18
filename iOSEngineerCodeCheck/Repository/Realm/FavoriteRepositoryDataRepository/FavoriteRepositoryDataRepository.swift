@@ -17,7 +17,11 @@ protocol FavoriteRepositoryDataRepository {
 }
 
 struct FavoriteRepositoryDataRepositoryImpl: FavoriteRepositoryDataRepository {
-    private let realm = try! Realm()
+    private let realm: Realm
+    
+    init(realm: Realm = try! .init()) {
+        self.realm = realm
+    }
     
     func repositorys() -> [GitHubRepositoryData] {
         let results = realm.objects(GitHubRepositoryDataObject.self)

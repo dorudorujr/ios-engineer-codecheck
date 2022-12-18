@@ -28,6 +28,10 @@
 		15A457CE293A2EFD002068F9 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CD293A2EFD002068F9 /* RequestMock.swift */; };
 		15A457D0293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */; };
 		15A457DF293B9D76002068F9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457DE293B9D76002068F9 /* LoadingView.swift */; };
+		15A552FF294CBE80003448C3 /* FavoriteListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */; };
+		15A55301294CC403003448C3 /* FavoriteListStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */; };
+		15A55303294DA0EE003448C3 /* RepositoryDetailStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */; };
+		15A55309294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55308294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift */; };
 		15B4C8492948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */; };
 		15B4C84D2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */; };
 		15BB52152942057700B57674 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52142942057700B57674 /* Realm */; };
@@ -104,6 +108,10 @@
 		15A457CD293A2EFD002068F9 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
 		15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		15A457DE293B9D76002068F9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewControllerTests.swift; sourceTree = "<group>"; };
+		15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListStoreTests.swift; sourceTree = "<group>"; };
+		15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailStoreTests.swift; sourceTree = "<group>"; };
+		15A55308294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataRepositoryTests.swift; sourceTree = "<group>"; };
 		15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataThunkCreator.swift; sourceTree = "<group>"; };
 		15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataAction.swift; sourceTree = "<group>"; };
 		15BF5B3329477B0A001E353C /* OwnerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerObject.swift; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 				15A457C9293A273D002068F9 /* Extension */,
 				15A457C7293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift */,
 				15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */,
+				15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */,
 			);
 			path = Snapshot;
 			sourceTree = "<group>";
@@ -248,6 +257,21 @@
 				15A457DE293B9D76002068F9 /* LoadingView.swift */,
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		15A55304294DAAE3003448C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		15A55307294EC3EB003448C3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				15A55308294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		15B4C84A2948A66000FC2C85 /* Realm */ = {
@@ -407,6 +431,8 @@
 			isa = PBXGroup;
 			children = (
 				15CFE73929333EDA00A550A0 /* RepositoryListStoreTests.swift */,
+				15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */,
+				15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -460,6 +486,7 @@
 				BFD945F4244DC5EB0012785A /* iOSEngineerCodeCheckTests */,
 				BFD945FF244DC5EB0012785A /* iOSEngineerCodeCheckUITests */,
 				BFD945DC244DC5E80012785A /* Products */,
+				15A55304294DAAE3003448C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -497,6 +524,7 @@
 		BFD945F4244DC5EB0012785A /* iOSEngineerCodeCheckTests */ = {
 			isa = PBXGroup;
 			children = (
+				15A55307294EC3EB003448C3 /* Repository */,
 				15A457CC293A2EDF002068F9 /* Mock */,
 				15A457C4293A2328002068F9 /* Snapshot */,
 				15CFE73829333CA400A550A0 /* Store */,
@@ -586,6 +614,8 @@
 				BFD945FE244DC5EB0012785A /* PBXTargetDependency */,
 			);
 			name = iOSEngineerCodeCheckUITests;
+			packageProductDependencies = (
+			);
 			productName = iOSEngineerCodeCheckUITests;
 			productReference = BFD945FC244DC5EB0012785A /* iOSEngineerCodeCheckUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -765,8 +795,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				15A457CB293A277C002068F9 /* FBSnapshotTestCase+verify.swift in Sources */,
+				15A55309294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift in Sources */,
 				15A457C8293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift in Sources */,
+				15A552FF294CBE80003448C3 /* FavoriteListViewControllerTests.swift in Sources */,
 				15A457D0293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift in Sources */,
+				15A55303294DA0EE003448C3 /* RepositoryDetailStoreTests.swift in Sources */,
+				15A55301294CC403003448C3 /* FavoriteListStoreTests.swift in Sources */,
 				15CFE73A29333EDA00A550A0 /* RepositoryListStoreTests.swift in Sources */,
 				15A457CE293A2EFD002068F9 /* RequestMock.swift in Sources */,
 			);

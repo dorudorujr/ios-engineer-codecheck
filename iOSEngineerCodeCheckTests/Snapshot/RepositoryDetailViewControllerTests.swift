@@ -10,6 +10,7 @@
 import XCTest
 import iOSSnapshotTestCase
 import Kingfisher
+import RealmSwift
 
 class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
     let cacheDummyURL = "https://avatar/dummy/url"
@@ -26,7 +27,7 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
         KingfisherManager.shared.cache.removeImage(forKey: cacheDummyURL)
     }
     
-    func test_normal() {
+    func test_not_favorite() {
         let repository = GitHubRepositoryData(id: 1,
                                               fullName: "apple/swift",
                                               owner: .init(avatarUrl: cacheDummyURL),
@@ -35,7 +36,27 @@ class RepositoryDetailViewControllerTests: FBSnapshotTestCase {
                                               language: "C++",
                                               forksCount: 9836,
                                               openIssuesCount: 6243)
-        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(with: .init(state: .init(repositoryData: repository)))
+        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(
+            with: (store: .init(state: .init(repositoryData: repository)),
+                   favoriteThunkCreator: .init(repository: FavoriteRepositoryDataRepositoryImpl()))
+        )
+        verify(vc: vc)
+    }
+    
+    func test_favorite() {
+        let repository = GitHubRepositoryData(id: 1,
+                                              fullName: "apple/swift",
+                                              owner: .init(avatarUrl: cacheDummyURL),
+                                              stargazersCount: 61196,
+                                              watchersCount: 61196,
+                                              language: "C++",
+                                              forksCount: 9836,
+                                              openIssuesCount: 6243)
+        let favoriteRepository = FavoriteRepositoryDataRepositoryImpl()
+        let vc = StoryboardScene.RepositoryDetail.initialScene.instantiate(
+            with: (store: .init(state: .init(repositoryData: repository, isFavorite: true)),
+                   favoriteThunkCreator: .init(repository: favoriteRepository))
+        )
         verify(vc: vc)
     }
 }
