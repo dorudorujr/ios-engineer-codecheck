@@ -50,6 +50,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
             .withLatestFrom(searchBar.rx.text)
             .unwrap()
             .bind(to: Binder(self) { me, value in
+                me.searchBar.resignFirstResponder()
                 me.store.dispatch(me.requestThunkCreator.request(parameter: .init(searchWord: value), disposeBag: me.disposeBag))
             })
             .disposed(by: disposeBag)
