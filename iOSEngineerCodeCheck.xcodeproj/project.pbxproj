@@ -32,6 +32,7 @@
 		15A55301294CC403003448C3 /* FavoriteListStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */; };
 		15A55303294DA0EE003448C3 /* RepositoryDetailStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */; };
 		15A55309294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55308294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift */; };
+		15AF61A3294F0D83009C611B /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 15AF61A2294F0D83009C611B /* RxGesture */; };
 		15B4C8492948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */; };
 		15B4C84D2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */; };
 		15BB52152942057700B57674 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52142942057700B57674 /* Realm */; };
@@ -172,6 +173,7 @@
 				15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */,
 				15BB52172942057700B57674 /* RealmSwift in Frameworks */,
 				15CA111E292DD48E00941B76 /* RxSwiftExt in Frameworks */,
+				15AF61A3294F0D83009C611B /* RxGesture in Frameworks */,
 				15707982292BAA4700E48161 /* ReSwiftThunk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,6 +574,7 @@
 				15C158B4292F8B7400BA5710 /* RxDataSources */,
 				15BB52142942057700B57674 /* Realm */,
 				15BB52162942057700B57674 /* RealmSwift */,
+				15AF61A2294F0D83009C611B /* RxGesture */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -661,6 +664,7 @@
 				15C158B1292F8B7400BA5710 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */,
 				15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				15AF61A1294F0D82009C611B /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -1157,6 +1161,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		15AF61A1294F0D82009C611B /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 4.0.4;
+			};
+		};
 		15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -1231,6 +1243,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
 			productName = iOSSnapshotTestCase;
+		};
+		15AF61A2294F0D83009C611B /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15AF61A1294F0D82009C611B /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
 		};
 		15BB52142942057700B57674 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
