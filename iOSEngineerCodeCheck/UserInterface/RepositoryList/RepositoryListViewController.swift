@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 import RxDataSources
+import RxGesture
 
 protocol RepositoryListCoordinatorDelegate: AnyObject {
     func showDetail(with repositoryData: GitHubRepositoryData)
@@ -71,6 +72,20 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
         store.rx.isLoading
             .drive(Binder(self) { _, isLoading in
                 isLoading ? LoadingView.show() : LoadingView.dismiss()
+            })
+            .disposed(by: disposeBag)
+        
+        view.rx.tapGesture()
+            .when(.recognized)
+            .bind(to: Binder(self) { me, _ in
+                me.view.endEditing(true)
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.swipeGesture([.up, .down])
+            .when(.recognized)
+            .bind(to: Binder(self) { me, _ in
+                me.view.endEditing(true)
             })
             .disposed(by: disposeBag)
     }
