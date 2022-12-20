@@ -39,6 +39,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
         searchBar.delegate = self
         tableView.dataSource = nil
         tableView.delegate = nil
+        tableView.keyboardDismissMode = .onDrag
         
         bind()
     }
@@ -75,17 +76,12 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
             })
             .disposed(by: disposeBag)
         
-        view.rx.tapGesture()
-            .when(.recognized)
-            .bind(to: Binder(self) { me, _ in
-                me.view.endEditing(true)
+        view.rx.tapGesture(configuration: { rec, _ in
+                rec.cancelsTouchesInView = false
             })
-            .disposed(by: disposeBag)
-        
-        tableView.rx.swipeGesture([.up, .down])
             .when(.recognized)
             .bind(to: Binder(self) { me, _ in
-                me.view.endEditing(true)
+                me.tableView.endEditing(true)
             })
             .disposed(by: disposeBag)
     }
