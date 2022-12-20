@@ -42,6 +42,8 @@
 		15BF5B3A29477EAD001E353C /* FavoriteRepositoryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */; };
 		15C158B3292F8B7400BA5710 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B2292F8B7400BA5710 /* Differentiator */; };
 		15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B4292F8B7400BA5710 /* RxDataSources */; };
+		15C677EB2951E2BC005BABCB /* RepositoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C677E92951E2BC005BABCB /* RepositoryListCell.swift */; };
+		15C677EC2951E2BC005BABCB /* RepositoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C677EA2951E2BC005BABCB /* RepositoryListCell.xib */; };
 		15CA1104292CF59400941B76 /* RequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1103292CF59400941B76 /* RequestAction.swift */; };
 		15CA1108292CF78B00941B76 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1107292CF78B00941B76 /* LoadingState.swift */; };
 		15CA110A292CF81000941B76 /* Reducible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1109292CF81000941B76 /* Reducible.swift */; };
@@ -118,6 +120,8 @@
 		15BF5B3329477B0A001E353C /* OwnerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerObject.swift; sourceTree = "<group>"; };
 		15BF5B3529477C03001E353C /* GitHubRepositoryDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDataObject.swift; sourceTree = "<group>"; };
 		15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataRepository.swift; sourceTree = "<group>"; };
+		15C677E92951E2BC005BABCB /* RepositoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCell.swift; sourceTree = "<group>"; };
+		15C677EA2951E2BC005BABCB /* RepositoryListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryListCell.xib; sourceTree = "<group>"; };
 		15CA1103292CF59400941B76 /* RequestAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAction.swift; sourceTree = "<group>"; };
 		15CA1107292CF78B00941B76 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		15CA1109292CF81000941B76 /* Reducible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducible.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 		15A457DD293B9D44002068F9 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				15C677E82951E26E005BABCB /* RepositoryListCell */,
 				15A457DE293B9D76002068F9 /* LoadingView.swift */,
 			);
 			path = UIComponent;
@@ -315,6 +320,15 @@
 				15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */,
 			);
 			path = FavoriteRepositoryDataRepository;
+			sourceTree = "<group>";
+		};
+		15C677E82951E26E005BABCB /* RepositoryListCell */ = {
+			isa = PBXGroup;
+			children = (
+				15C677E92951E2BC005BABCB /* RepositoryListCell.swift */,
+				15C677EA2951E2BC005BABCB /* RepositoryListCell.xib */,
+			);
+			path = RepositoryListCell;
 			sourceTree = "<group>";
 		};
 		15CA1100292CF4F000941B76 /* Redux */ = {
@@ -685,6 +699,7 @@
 				BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */,
 				15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */,
 				159FA6A129449D5D00B92DAD /* FavoriteList.storyboard in Resources */,
+				15C677EC2951E2BC005BABCB /* RepositoryListCell.xib in Resources */,
 				BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */,
 				BFD945E6244DC5E80012785A /* RepositoryList.storyboard in Resources */,
 			);
@@ -791,6 +806,7 @@
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				15A457DF293B9D76002068F9 /* LoadingView.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
+				15C677EB2951E2BC005BABCB /* RepositoryListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
