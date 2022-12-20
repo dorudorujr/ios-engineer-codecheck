@@ -18,12 +18,28 @@
 		159E750D292A6B96001B8685 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750C292A6B96001B8685 /* Coordinator.swift */; };
 		159E7510292A710C001B8685 /* RepositoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */; };
 		159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */; };
+		159FA69D29449CA600B92DAD /* FavoriteListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FA69C29449CA600B92DAD /* FavoriteListCoordinator.swift */; };
+		159FA69F29449D1F00B92DAD /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FA69E29449D1F00B92DAD /* FavoriteListViewController.swift */; };
+		159FA6A129449D5D00B92DAD /* FavoriteList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 159FA6A029449D5D00B92DAD /* FavoriteList.storyboard */; };
+		159FA6A32944B12B00B92DAD /* FavoriteListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FA6A22944B12B00B92DAD /* FavoriteListState.swift */; };
 		15A457C3293A1E67002068F9 /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 15A457C2293A1E67002068F9 /* iOSSnapshotTestCase */; };
 		15A457C8293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457C7293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift */; };
 		15A457CB293A277C002068F9 /* FBSnapshotTestCase+verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CA293A277C002068F9 /* FBSnapshotTestCase+verify.swift */; };
 		15A457CE293A2EFD002068F9 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CD293A2EFD002068F9 /* RequestMock.swift */; };
 		15A457D0293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */; };
 		15A457DF293B9D76002068F9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A457DE293B9D76002068F9 /* LoadingView.swift */; };
+		15A552FF294CBE80003448C3 /* FavoriteListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */; };
+		15A55301294CC403003448C3 /* FavoriteListStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */; };
+		15A55303294DA0EE003448C3 /* RepositoryDetailStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */; };
+		15A55309294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A55308294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift */; };
+		15AF61A3294F0D83009C611B /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 15AF61A2294F0D83009C611B /* RxGesture */; };
+		15B4C8492948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */; };
+		15B4C84D2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */; };
+		15BB52152942057700B57674 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52142942057700B57674 /* Realm */; };
+		15BB52172942057700B57674 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 15BB52162942057700B57674 /* RealmSwift */; };
+		15BF5B3429477B0A001E353C /* OwnerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3329477B0A001E353C /* OwnerObject.swift */; };
+		15BF5B3629477C03001E353C /* GitHubRepositoryDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3529477C03001E353C /* GitHubRepositoryDataObject.swift */; };
+		15BF5B3A29477EAD001E353C /* FavoriteRepositoryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */; };
 		15C158B3292F8B7400BA5710 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B2292F8B7400BA5710 /* Differentiator */; };
 		15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B4292F8B7400BA5710 /* RxDataSources */; };
 		15CA1104292CF59400941B76 /* RequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1103292CF59400941B76 /* RequestAction.swift */; };
@@ -84,11 +100,24 @@
 		159E750C292A6B96001B8685 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		159E750F292A710C001B8685 /* RepositoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCoordinator.swift; sourceTree = "<group>"; };
 		159E7511292A7B6D001B8685 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		159FA69C29449CA600B92DAD /* FavoriteListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListCoordinator.swift; sourceTree = "<group>"; };
+		159FA69E29449D1F00B92DAD /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
+		159FA6A029449D5D00B92DAD /* FavoriteList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteList.storyboard; sourceTree = "<group>"; };
+		159FA6A22944B12B00B92DAD /* FavoriteListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListState.swift; sourceTree = "<group>"; };
 		15A457C7293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		15A457CA293A277C002068F9 /* FBSnapshotTestCase+verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FBSnapshotTestCase+verify.swift"; sourceTree = "<group>"; };
 		15A457CD293A2EFD002068F9 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
 		15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		15A457DE293B9D76002068F9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewControllerTests.swift; sourceTree = "<group>"; };
+		15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListStoreTests.swift; sourceTree = "<group>"; };
+		15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailStoreTests.swift; sourceTree = "<group>"; };
+		15A55308294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataRepositoryTests.swift; sourceTree = "<group>"; };
+		15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataThunkCreator.swift; sourceTree = "<group>"; };
+		15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataAction.swift; sourceTree = "<group>"; };
+		15BF5B3329477B0A001E353C /* OwnerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerObject.swift; sourceTree = "<group>"; };
+		15BF5B3529477C03001E353C /* GitHubRepositoryDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDataObject.swift; sourceTree = "<group>"; };
+		15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataRepository.swift; sourceTree = "<group>"; };
 		15CA1103292CF59400941B76 /* RequestAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAction.swift; sourceTree = "<group>"; };
 		15CA1107292CF78B00941B76 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		15CA1109292CF81000941B76 /* Reducible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducible.swift; sourceTree = "<group>"; };
@@ -138,10 +167,13 @@
 				157079AA292BAD0500E48161 /* RxRelay in Frameworks */,
 				15E143C6291FA70500D980A3 /* Kingfisher in Frameworks */,
 				1570797F292BA9EB00E48161 /* ReSwift in Frameworks */,
+				15BB52152942057700B57674 /* Realm in Frameworks */,
 				15C158B3292F8B7400BA5710 /* Differentiator in Frameworks */,
 				157079A8292BAD0500E48161 /* RxCocoa in Frameworks */,
 				15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */,
+				15BB52172942057700B57674 /* RealmSwift in Frameworks */,
 				15CA111E292DD48E00941B76 /* RxSwiftExt in Frameworks */,
+				15AF61A3294F0D83009C611B /* RxGesture in Frameworks */,
 				15707982292BAA4700E48161 /* ReSwiftThunk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,12 +216,23 @@
 			path = RepositoryList;
 			sourceTree = "<group>";
 		};
+		159FA69B29449C8100B92DAD /* FavoriteList */ = {
+			isa = PBXGroup;
+			children = (
+				159FA69C29449CA600B92DAD /* FavoriteListCoordinator.swift */,
+				159FA69E29449D1F00B92DAD /* FavoriteListViewController.swift */,
+				159FA6A029449D5D00B92DAD /* FavoriteList.storyboard */,
+			);
+			path = FavoriteList;
+			sourceTree = "<group>";
+		};
 		15A457C4293A2328002068F9 /* Snapshot */ = {
 			isa = PBXGroup;
 			children = (
 				15A457C9293A273D002068F9 /* Extension */,
 				15A457C7293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift */,
 				15A457CF293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift */,
+				15A552FE294CBE80003448C3 /* FavoriteListViewControllerTests.swift */,
 			);
 			path = Snapshot;
 			sourceTree = "<group>";
@@ -218,6 +261,62 @@
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
+		15A55304294DAAE3003448C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		15A55307294EC3EB003448C3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				15A55308294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		15B4C84A2948A66000FC2C85 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				15B4C8482948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		15B4C84B2948A67A00FC2C85 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				15B4C84C2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		15BF5B32294778DA001E353C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				15BF5B3329477B0A001E353C /* OwnerObject.swift */,
+				15BF5B3529477C03001E353C /* GitHubRepositoryDataObject.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		15BF5B3729477D95001E353C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				15BF5B3829477DB6001E353C /* FavoriteRepositoryDataRepository */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		15BF5B3829477DB6001E353C /* FavoriteRepositoryDataRepository */ = {
+			isa = PBXGroup;
+			children = (
+				15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */,
+			);
+			path = FavoriteRepositoryDataRepository;
+			sourceTree = "<group>";
+		};
 		15CA1100292CF4F000941B76 /* Redux */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +339,7 @@
 		15CA1102292CF58100941B76 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				15B4C84B2948A67A00FC2C85 /* Realm */,
 				15CA1103292CF59400941B76 /* RequestAction.swift */,
 			);
 			path = Common;
@@ -251,6 +351,7 @@
 				15CA1106292CF77200941B76 /* Common */,
 				15CA111A292DC6D800941B76 /* RepositoryListState.swift */,
 				15CFE73629310DAA00A550A0 /* RepositoryDetailState.swift */,
+				159FA6A22944B12B00B92DAD /* FavoriteListState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -277,6 +378,7 @@
 		15CA110E292D02D400941B76 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				15B4C84A2948A66000FC2C85 /* Realm */,
 				15CA110F292D02EB00941B76 /* RequestThunkCreator.swift */,
 			);
 			path = Common;
@@ -310,6 +412,7 @@
 		15CD718B2928BFD300CF2A10 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				159FA69B29449C8100B92DAD /* FavoriteList */,
 				159E750E292A6FD6001B8685 /* RepositoryList */,
 				15CD718C2928BFEA00CF2A10 /* RepositoryDetail */,
 			);
@@ -330,6 +433,8 @@
 			isa = PBXGroup;
 			children = (
 				15CFE73929333EDA00A550A0 /* RepositoryListStoreTests.swift */,
+				15A55300294CC403003448C3 /* FavoriteListStoreTests.swift */,
+				15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -337,6 +442,7 @@
 		15E143C7291FE19D00D980A3 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				15BF5B3729477D95001E353C /* Realm */,
 				15E143C8291FE26B00D980A3 /* HttpRequest */,
 			);
 			path = Repository;
@@ -368,6 +474,7 @@
 		15E143D82920E59200D980A3 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				15BF5B32294778DA001E353C /* Realm */,
 				15E143D92920E5D900D980A3 /* GitHubRepositoryData.swift */,
 				15E143DB2920E78D00D980A3 /* Owner.swift */,
 			);
@@ -381,6 +488,7 @@
 				BFD945F4244DC5EB0012785A /* iOSEngineerCodeCheckTests */,
 				BFD945FF244DC5EB0012785A /* iOSEngineerCodeCheckUITests */,
 				BFD945DC244DC5E80012785A /* Products */,
+				15A55304294DAAE3003448C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -418,6 +526,7 @@
 		BFD945F4244DC5EB0012785A /* iOSEngineerCodeCheckTests */ = {
 			isa = PBXGroup;
 			children = (
+				15A55307294EC3EB003448C3 /* Repository */,
 				15A457CC293A2EDF002068F9 /* Mock */,
 				15A457C4293A2328002068F9 /* Snapshot */,
 				15CFE73829333CA400A550A0 /* Store */,
@@ -463,6 +572,9 @@
 				15CA111D292DD48E00941B76 /* RxSwiftExt */,
 				15C158B2292F8B7400BA5710 /* Differentiator */,
 				15C158B4292F8B7400BA5710 /* RxDataSources */,
+				15BB52142942057700B57674 /* Realm */,
+				15BB52162942057700B57674 /* RealmSwift */,
+				15AF61A2294F0D83009C611B /* RxGesture */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -505,6 +617,8 @@
 				BFD945FE244DC5EB0012785A /* PBXTargetDependency */,
 			);
 			name = iOSEngineerCodeCheckUITests;
+			packageProductDependencies = (
+			);
 			productName = iOSEngineerCodeCheckUITests;
 			productReference = BFD945FC244DC5EB0012785A /* iOSEngineerCodeCheckUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -549,6 +663,8 @@
 				15CA111C292DD48E00941B76 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				15C158B1292F8B7400BA5710 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */,
+				15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				15AF61A1294F0D82009C611B /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -568,6 +684,7 @@
 			files = (
 				BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */,
 				15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */,
+				159FA6A129449D5D00B92DAD /* FavoriteList.storyboard in Resources */,
 				BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */,
 				BFD945E6244DC5E80012785A /* RepositoryList.storyboard in Resources */,
 			);
@@ -646,19 +763,27 @@
 				15E143DA2920E5D900D980A3 /* GitHubRepositoryData.swift in Sources */,
 				159E750A292A6B6A001B8685 /* RepositoryDetailCoordinatyor.swift in Sources */,
 				15CA111B292DC6D800941B76 /* RepositoryListState.swift in Sources */,
+				15BF5B3429477B0A001E353C /* OwnerObject.swift in Sources */,
 				159E750D292A6B96001B8685 /* Coordinator.swift in Sources */,
+				15B4C84D2948A6D600FC2C85 /* FavoriteRepositoryDataAction.swift in Sources */,
 				15CA1113292D237000941B76 /* RxStore.swift in Sources */,
 				15CA110A292CF81000941B76 /* Reducible.swift in Sources */,
 				15CFE73729310DAA00A550A0 /* RepositoryDetailState.swift in Sources */,
 				15CA1108292CF78B00941B76 /* LoadingState.swift in Sources */,
+				15B4C8492948A5E500FC2C85 /* FavoriteRepositoryDataThunkCreator.swift in Sources */,
 				15CA1119292DC5B100941B76 /* RepositoryListThunkCreator.swift in Sources */,
+				15BF5B3629477C03001E353C /* GitHubRepositoryDataObject.swift in Sources */,
+				159FA6A32944B12B00B92DAD /* FavoriteListState.swift in Sources */,
 				15E143D22920CD3400D980A3 /* APIClientError.swift in Sources */,
 				15CD71852928A80D00CF2A10 /* Segues.swift in Sources */,
 				15E143D52920CFA700D980A3 /* SearchGitHubRepositoryParameter.swift in Sources */,
+				159FA69F29449D1F00B92DAD /* FavoriteListViewController.swift in Sources */,
 				15E143CA291FF01A00D980A3 /* Requestable.swift in Sources */,
 				15CA110C292CF8D100941B76 /* Event.swift in Sources */,
 				BFD945E3244DC5E80012785A /* RepositoryListViewController.swift in Sources */,
 				15CA1104292CF59400941B76 /* RequestAction.swift in Sources */,
+				15BF5B3A29477EAD001E353C /* FavoriteRepositoryDataRepository.swift in Sources */,
+				159FA69D29449CA600B92DAD /* FavoriteListCoordinator.swift in Sources */,
 				159E7512292A7B6D001B8685 /* ApplicationCoordinator.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailViewController.swift in Sources */,
 				15CA1117292DC41600941B76 /* AnyRequest.swift in Sources */,
@@ -674,8 +799,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				15A457CB293A277C002068F9 /* FBSnapshotTestCase+verify.swift in Sources */,
+				15A55309294EC45B003448C3 /* FavoriteRepositoryDataRepositoryTests.swift in Sources */,
 				15A457C8293A26FE002068F9 /* RepositoryListViewControllerSnapshotTests.swift in Sources */,
+				15A552FF294CBE80003448C3 /* FavoriteListViewControllerTests.swift in Sources */,
 				15A457D0293A3D7A002068F9 /* RepositoryDetailViewControllerTests.swift in Sources */,
+				15A55303294DA0EE003448C3 /* RepositoryDetailStoreTests.swift in Sources */,
+				15A55301294CC403003448C3 /* FavoriteListStoreTests.swift in Sources */,
 				15CFE73A29333EDA00A550A0 /* RepositoryListStoreTests.swift in Sources */,
 				15A457CE293A2EFD002068F9 /* RequestMock.swift in Sources */,
 			);
@@ -1032,6 +1161,22 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		15AF61A1294F0D82009C611B /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 4.0.4;
+			};
+		};
+		15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 10.33.0;
+			};
+		};
 		15C158B1292F8B7400BA5710 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
@@ -1098,6 +1243,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 15A457C1293A1E67002068F9 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
 			productName = iOSSnapshotTestCase;
+		};
+		15AF61A2294F0D83009C611B /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15AF61A1294F0D82009C611B /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
+		15BB52142942057700B57674 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		15BB52162942057700B57674 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15BB52132942057700B57674 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		15C158B2292F8B7400BA5710 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -28,10 +28,19 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var openIssuesCountLabel: UILabel!
     
     private var store: Store!
+    private var favoriteThunkCreator: FavoriteRepositoryDataThunkCreator!
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let favoriteButton = UIBarButtonItem(image: .init(systemName: "heart"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = favoriteButton
+        
         bind()
+        guard let repositoryData = store.state.repositoryData else {
+            return
+        }
+        store.dispatch(favoriteThunkCreator.isFavorite(repositoryData))
     }
     
     // MARK: - Rx
@@ -67,18 +76,41 @@ class RepositoryDetailViewController: UIViewController {
                 self?.avatarImageView.kf.setImage(with: value)
             })
             .disposed(by: disposeBag)
+        
+        store.rx.isFavorite
+            .drive(Binder(self) { me, isFavorite in
+                me.navigationItem.rightBarButtonItem?.image = isFavorite ? .init(systemName: "heart.fill") : .init(systemName: "heart")
+            })
+            .disposed(by: disposeBag)
+        
+        navigationItem.rightBarButtonItem?.rx.tap
+            .bind(to: Binder(self) { me, _ in
+                guard let repositoryData = me.store.state.repositoryData else {
+                    return
+                }
+                me.store.dispatch(me.favoriteThunkCreator.changeFavoriteStatus(of: repositoryData))
+            })
+            .disposed(by: disposeBag)
+            
     }
 }
 
 extension RepositoryDetailViewController: DependencyInjectable {
-    typealias Dependency = Store
+    typealias Dependency = (store: Store, favoriteThunkCreator: FavoriteRepositoryDataThunkCreator)
     
     func inject(with dependency: Dependency) {
-        store = dependency
+        store = dependency.store
+        favoriteThunkCreator = dependency.favoriteThunkCreator
     }
 }
 
 extension Reactive where Base: RepositoryDetailViewController.Store {
+    var isFavorite: Driver<Bool> {
+        base.stateObservable.mapAt(\.isFavorite)
+            .distinctUntilChanged()
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
     var fullName: Driver<String> {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()

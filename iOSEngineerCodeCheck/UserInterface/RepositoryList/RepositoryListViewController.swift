@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 import RxDataSources
+import RxGesture
 
 protocol RepositoryListCoordinatorDelegate: AnyObject {
     func showDetail(with repositoryData: GitHubRepositoryData)
@@ -32,7 +33,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "Root View Controller"
+        title = "検索画面"
         navigationItem.largeTitleDisplayMode = .always
         searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
         searchBar.delegate = self
@@ -50,6 +51,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
             .withLatestFrom(searchBar.rx.text)
             .unwrap()
             .bind(to: Binder(self) { me, value in
+                me.searchBar.resignFirstResponder()
                 me.store.dispatch(me.requestThunkCreator.request(parameter: .init(searchWord: value), disposeBag: me.disposeBag))
             })
             .disposed(by: disposeBag)
@@ -70,6 +72,20 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
         store.rx.isLoading
             .drive(Binder(self) { _, isLoading in
                 isLoading ? LoadingView.show() : LoadingView.dismiss()
+            })
+            .disposed(by: disposeBag)
+        
+        view.rx.tapGesture()
+            .when(.recognized)
+            .bind(to: Binder(self) { me, _ in
+                me.view.endEditing(true)
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.swipeGesture([.up, .down])
+            .when(.recognized)
+            .bind(to: Binder(self) { me, _ in
+                me.view.endEditing(true)
             })
             .disposed(by: disposeBag)
     }
