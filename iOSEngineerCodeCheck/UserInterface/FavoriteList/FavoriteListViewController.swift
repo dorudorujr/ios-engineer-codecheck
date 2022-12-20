@@ -35,6 +35,8 @@ class FavoriteListViewController: UIViewController {
         title = "お気に入り画面"
         navigationItem.largeTitleDisplayMode = .always
         
+        tableView.register(.init(nibName: "RepositoryListCell", bundle: nil), forCellReuseIdentifier: "RepositoryListCell")
+        
         bind()
     }
     
@@ -77,12 +79,13 @@ class FavoriteListViewController: UIViewController {
     }
     
     private lazy var dataSource = DataSource(
-        configureCell: { _, _, indexPath, item in
+        configureCell: { _, tableView, indexPath, item in
             switch item {
             case let .repository(s):
-                let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subtitleCell")
-                cell.textLabel?.text = s.fullName
-                cell.detailTextLabel?.text = s.language
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryListCell", for: indexPath ) as? RepositoryListCell else {
+                    return .init()
+                }
+                cell.bind(avatarImageUrl: s.owner.avatarUrl, fullName: s.fullName, description: s.description, starCount: s.stargazersCount)
                 cell.tag = indexPath.row
                 return cell
             }
