@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGU-ar-QBa" customClass="BlurEffectView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="393"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FA5-zu-hgT" customClass="CardView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
@@ -38,15 +38,27 @@
                                     <constraint firstItem="Utg-8F-B0A" firstAttribute="leading" secondItem="FA5-zu-hgT" secondAttribute="leading" id="w4p-fR-fb5"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsP-ju-rTn">
-                                <rect key="frame" x="184" y="284" width="46.5" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsP-ju-rTn">
+                                <rect key="frame" x="16" y="284" width="382" height="35"/>
                                 <accessibility key="accessibilityConfiguration" identifier="TitleLabel"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="8SF-9z-gNR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfy-1Y-jlW">
+                                <rect key="frame" x="16" y="327" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h8H-uD-ssP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CME-ZA-M8T">
-                                <rect key="frame" x="16" y="336" width="382" height="106"/>
+                                <rect key="frame" x="16" y="433" width="382" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-x4-Gpg">
                                         <rect key="frame" x="0.0" y="0.0" width="66.5" height="17"/>
@@ -94,13 +106,18 @@
                         <viewLayoutGuide key="safeArea" id="d8v-Sh-p7w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="d8v-Sh-p7w" firstAttribute="trailing" secondItem="KsP-ju-rTn" secondAttribute="trailing" constant="16" id="0Q9-cw-2T3"/>
                             <constraint firstItem="CME-ZA-M8T" firstAttribute="leading" secondItem="d8v-Sh-p7w" secondAttribute="leading" constant="16" id="2m8-sT-YcO"/>
                             <constraint firstItem="d8v-Sh-p7w" firstAttribute="trailing" secondItem="CME-ZA-M8T" secondAttribute="trailing" constant="16" id="30I-3X-d8k"/>
-                            <constraint firstItem="CME-ZA-M8T" firstAttribute="top" secondItem="KsP-ju-rTn" secondAttribute="bottom" constant="22" id="3fF-He-38l"/>
+                            <constraint firstItem="wfy-1Y-jlW" firstAttribute="centerX" secondItem="wCv-FG-8ah" secondAttribute="centerX" id="5nR-6i-ro8"/>
+                            <constraint firstItem="wfy-1Y-jlW" firstAttribute="leading" secondItem="d8v-Sh-p7w" secondAttribute="leading" constant="16" id="EGF-GM-wg9"/>
+                            <constraint firstItem="d8v-Sh-p7w" firstAttribute="trailing" secondItem="wfy-1Y-jlW" secondAttribute="trailing" constant="16" id="QY7-YA-cMs"/>
+                            <constraint firstItem="KsP-ju-rTn" firstAttribute="leading" secondItem="d8v-Sh-p7w" secondAttribute="leading" constant="16" id="Xoh-z5-jmV"/>
                             <constraint firstItem="FA5-zu-hgT" firstAttribute="top" secondItem="d8v-Sh-p7w" secondAttribute="top" id="aom-9D-52Z"/>
                             <constraint firstItem="d8v-Sh-p7w" firstAttribute="trailing" secondItem="iGU-ar-QBa" secondAttribute="trailing" id="eEz-6K-alp"/>
-                            <constraint firstItem="CME-ZA-M8T" firstAttribute="centerX" secondItem="KsP-ju-rTn" secondAttribute="centerX" id="hfK-p0-LsI"/>
-                            <constraint firstItem="iGU-ar-QBa" firstAttribute="height" secondItem="wCv-FG-8ah" secondAttribute="height" multiplier="0.4" id="hio-z2-Md9"/>
+                            <constraint firstItem="wfy-1Y-jlW" firstAttribute="bottom" secondItem="iGU-ar-QBa" secondAttribute="bottom" constant="-16" id="hKF-vy-2vT"/>
+                            <constraint firstItem="wfy-1Y-jlW" firstAttribute="top" secondItem="KsP-ju-rTn" secondAttribute="bottom" constant="8" id="kJE-5X-mYu"/>
+                            <constraint firstItem="CME-ZA-M8T" firstAttribute="top" secondItem="iGU-ar-QBa" secondAttribute="bottom" constant="40" id="m7M-LG-G9F"/>
                             <constraint firstItem="FA5-zu-hgT" firstAttribute="centerX" secondItem="wCv-FG-8ah" secondAttribute="centerX" id="p9K-1I-CGC"/>
                             <constraint firstItem="iGU-ar-QBa" firstAttribute="top" secondItem="wCv-FG-8ah" secondAttribute="top" id="qik-cg-fvU"/>
                             <constraint firstItem="iGU-ar-QBa" firstAttribute="leading" secondItem="d8v-Sh-p7w" secondAttribute="leading" id="sZK-9R-OFF"/>
@@ -111,6 +128,7 @@
                     <connections>
                         <outlet property="avatarImageView" destination="Utg-8F-B0A" id="CLH-ys-PNd"/>
                         <outlet property="blurEffectBackground" destination="iGU-ar-QBa" id="QaR-C4-8Fo"/>
+                        <outlet property="descriptionLabel" destination="wfy-1Y-jlW" id="4cq-Cm-Pre"/>
                         <outlet property="forksCountLabel" destination="V5a-Kr-PTT" id="Hvo-B4-HiM"/>
                         <outlet property="languageLabel" destination="ebJ-x4-Gpg" id="oey-3j-Nwz"/>
                         <outlet property="openIssuesCountLabel" destination="3Xu-zY-64o" id="lci-lB-qH8"/>

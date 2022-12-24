@@ -20,6 +20,7 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var avatarImageView: UIImageView!
     
     @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
     
     @IBOutlet weak private var languageLabel: UILabel!
     
@@ -37,6 +38,8 @@ class RepositoryDetailViewController: UIViewController {
         let favoriteButton = UIBarButtonItem(image: .init(systemName: "heart"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = favoriteButton
         
+        titleLabel.sizeToFit()
+        
         bind()
         guard let repositoryData = store.state.repositoryData else {
             return
@@ -50,6 +53,10 @@ class RepositoryDetailViewController: UIViewController {
     private func bind() {
         store.rx.fullName
             .drive(titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        store.rx.descriptionText
+            .drive(descriptionLabel.rx.text)
             .disposed(by: disposeBag)
         
         store.rx.language
@@ -118,6 +125,14 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
             .unwrap()
             .distinctUntilChanged()
             .mapAt(\.fullName)
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    var descriptionText: Driver<String?> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
