@@ -28,6 +28,7 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var wachersCountLabel: UILabel!
     @IBOutlet weak private var forksCountLabel: UILabel!
     @IBOutlet weak private var openIssuesCountLabel: UILabel!
+    @IBOutlet weak private var cardViewTopConstraint: NSLayoutConstraint!
     
     private var store: Store!
     private var favoriteThunkCreator: FavoriteRepositoryDataThunkCreator!
@@ -39,6 +40,8 @@ class RepositoryDetailViewController: UIViewController {
         
         let favoriteButton = UIBarButtonItem(image: .init(systemName: "heart"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = favoriteButton
+        
+        cardViewTopConstraint.constant = navigationController?.navigationBar.frame.size.height ?? 0
         
         bind()
         guard let repositoryData = store.state.repositoryData else {
