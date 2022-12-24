@@ -35,6 +35,8 @@ class RepositoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.largeTitleDisplayMode = .never
+        
         let favoriteButton = UIBarButtonItem(image: .init(systemName: "heart"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = favoriteButton
         
