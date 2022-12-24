@@ -34,7 +34,7 @@ class BlurEffectView: UIView {
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
         addSubview(view)
         
-        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffect = UIBlurEffect(style: .systemMaterial)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         guard let blurEffectView = blurEffectView else {
             return

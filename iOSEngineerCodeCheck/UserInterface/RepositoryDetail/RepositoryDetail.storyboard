@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGU-ar-QBa" customClass="BlurEffectView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="393"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FA5-zu-hgT" customClass="CardView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
@@ -49,16 +49,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfy-1Y-jlW">
-                                <rect key="frame" x="16" y="327" width="382" height="50"/>
+                                <rect key="frame" x="16" y="327" width="382" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="h8H-uD-ssP"/>
+                                    <constraint firstAttribute="height" constant="20" id="YyU-iA-Tce"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CME-ZA-M8T">
-                                <rect key="frame" x="16" y="433" width="382" height="106"/>
+                                <rect key="frame" x="16" y="403" width="382" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-x4-Gpg">
                                         <rect key="frame" x="0.0" y="0.0" width="66.5" height="17"/>
