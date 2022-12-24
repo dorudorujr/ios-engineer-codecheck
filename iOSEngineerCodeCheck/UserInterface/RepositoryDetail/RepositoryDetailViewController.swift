@@ -38,8 +38,6 @@ class RepositoryDetailViewController: UIViewController {
         let favoriteButton = UIBarButtonItem(image: .init(systemName: "heart"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = favoriteButton
         
-        titleLabel.sizeToFit()
-        
         bind()
         guard let repositoryData = store.state.repositoryData else {
             return
