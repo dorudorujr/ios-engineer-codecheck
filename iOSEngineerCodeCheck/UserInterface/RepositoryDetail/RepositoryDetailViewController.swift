@@ -16,6 +16,7 @@ class RepositoryDetailViewController: UIViewController {
     typealias State = RepositoryDetailState
     typealias Store = RxStore<State>
     
+    @IBOutlet weak private var blurEffectBackground: BlurEffectView!
     @IBOutlet weak private var avatarImageView: UIImageView!
     
     @IBOutlet weak private var titleLabel: UILabel!
@@ -72,8 +73,9 @@ class RepositoryDetailViewController: UIViewController {
             .disposed(by: disposeBag)
         
         store.rx.avatarImage
-            .drive(onNext: { [weak self] value in
-                self?.avatarImageView.kf.setImage(with: value)
+            .drive(Binder(self) { me, value in
+                me.avatarImageView.kf.setImage(with: value)
+                me.blurEffectBackground.image.kf.setImage(with: value)
             })
             .disposed(by: disposeBag)
         
