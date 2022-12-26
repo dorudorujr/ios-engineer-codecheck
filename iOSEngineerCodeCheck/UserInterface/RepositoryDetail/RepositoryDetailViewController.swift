@@ -41,7 +41,7 @@ class RepositoryDetailViewController: UIViewController {
         let favoriteButton = UIBarButtonItem(image: .init(systemName: "heart"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = favoriteButton
         
-        cardViewTopConstraint.constant = navigationController?.navigationBar.frame.size.height ?? 0
+        cardViewTopConstraint.constant += SceneDelegate.statusBarHeight
         
         bind()
         guard let repositoryData = store.state.repositoryData else {

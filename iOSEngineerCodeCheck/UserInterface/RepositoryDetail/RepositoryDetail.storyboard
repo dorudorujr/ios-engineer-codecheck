@@ -23,11 +23,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-Jg-tmn" customClass="BlurEffectView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-100" width="414" height="423"/>
+                                                <rect key="frame" x="0.0" y="-100" width="414" height="467"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zO-KN-Vw8" customClass="CardView" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
-                                                <rect key="frame" x="107" y="0.0" width="200" height="200"/>
+                                                <rect key="frame" x="107" y="44" width="200" height="200"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0m-Bh-z32">
                                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -45,7 +45,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qER-dV-dCF">
-                                                <rect key="frame" x="16" y="220" width="382" height="35"/>
+                                                <rect key="frame" x="16" y="264" width="382" height="35"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="TitleLabel"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="4c0-iz-mSz"/>
@@ -55,7 +55,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUk-nT-bqJ">
-                                                <rect key="frame" x="16" y="263" width="382" height="20"/>
+                                                <rect key="frame" x="16" y="307" width="382" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="dMh-Tn-ywC"/>
                                                 </constraints>
@@ -64,7 +64,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZPx-bY-Rgt">
-                                                <rect key="frame" x="16" y="343" width="382" height="164"/>
+                                                <rect key="frame" x="16" y="387" width="382" height="164"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MHs-eQ-CAq">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="164"/>
@@ -171,7 +171,7 @@
                                             <constraint firstItem="qER-dV-dCF" firstAttribute="top" secondItem="2zO-KN-Vw8" secondAttribute="bottom" constant="20" id="BIT-Ck-25S"/>
                                             <constraint firstItem="qUk-nT-bqJ" firstAttribute="leading" secondItem="UCT-cv-sfg" secondAttribute="leading" constant="16" id="GZl-Ks-b3H"/>
                                             <constraint firstItem="FW9-Jg-tmn" firstAttribute="top" secondItem="UCT-cv-sfg" secondAttribute="top" constant="-100" id="LwX-Av-qaA"/>
-                                            <constraint firstItem="2zO-KN-Vw8" firstAttribute="top" secondItem="UCT-cv-sfg" secondAttribute="top" id="TVy-XP-4bG"/>
+                                            <constraint firstItem="2zO-KN-Vw8" firstAttribute="top" secondItem="UCT-cv-sfg" secondAttribute="top" constant="44" id="TVy-XP-4bG"/>
                                             <constraint firstItem="qUk-nT-bqJ" firstAttribute="bottom" secondItem="FW9-Jg-tmn" secondAttribute="bottom" constant="-40" id="U5M-Lt-Pc2"/>
                                             <constraint firstItem="2zO-KN-Vw8" firstAttribute="centerX" secondItem="UCT-cv-sfg" secondAttribute="centerX" id="dUF-nm-krq"/>
                                             <constraint firstItem="qER-dV-dCF" firstAttribute="leading" secondItem="UCT-cv-sfg" secondAttribute="leading" constant="16" id="eXM-I6-glu"/>
