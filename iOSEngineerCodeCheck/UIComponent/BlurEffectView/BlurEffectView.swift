@@ -23,11 +23,6 @@ class BlurEffectView: UIView {
         super.init(coder: aDecoder)
         nibInit()
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        blurEffectView?.frame = self.frame
-    }
 
     private func nibInit() {
         let nib = UINib(nibName: "BlurEffectView", bundle: nil)
@@ -36,9 +31,14 @@ class BlurEffectView: UIView {
         
         let blurEffect = UIBlurEffect(style: .systemMaterial)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView?.translatesAutoresizingMaskIntoConstraints = false
         guard let blurEffectView = blurEffectView else {
             return
         }
         addSubview(blurEffectView)
+        blurEffectView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        blurEffectView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        blurEffectView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
+        blurEffectView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
     }
 }
