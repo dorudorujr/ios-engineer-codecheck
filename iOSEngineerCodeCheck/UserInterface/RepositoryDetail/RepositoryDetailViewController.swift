@@ -144,9 +144,6 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
             .unwrap()
             .distinctUntilChanged()
             .mapAt(\.language)
-            .map { value in
-                "Written in \(value)"
-            }
             .asDriver(onErrorDriveWith: .never())
     }
     
@@ -154,10 +151,7 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
-            .mapAt(\.stargazersCount)
-            .map { value in
-                "\(value) stars"
-            }
+            .mapAt(\.stargazersCount.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
@@ -165,10 +159,7 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
-            .mapAt(\.watchersCount)
-            .map { value in
-                "\(value) watchers"
-            }
+            .mapAt(\.watchersCount.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
@@ -176,10 +167,7 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
-            .mapAt(\.forksCount)
-            .map { value in
-                "\(value) forks"
-            }
+            .mapAt(\.forksCount.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
@@ -187,10 +175,7 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
-            .mapAt(\.openIssuesCount)
-            .map { value in
-                "\(value) open issues"
-            }
+            .mapAt(\.openIssuesCount.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
