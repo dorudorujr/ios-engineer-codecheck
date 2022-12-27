@@ -21,6 +21,7 @@ class RepositoryDetailStoreTests: XCTestCase {
     let repository = GitHubRepositoryData(id: 1,
                                           fullName: "apple/swift",
                                           owner: .init(avatarUrl: "url"),
+                                          description: "リポジトリ説明",
                                           stargazersCount: 61196,
                                           watchersCount: 61196,
                                           language: "C++",
@@ -29,6 +30,7 @@ class RepositoryDetailStoreTests: XCTestCase {
     
     lazy var isFavoriteSpy = scheduler.createObserver(Bool.self)
     lazy var fullNameSpy = scheduler.createObserver(String.self)
+    lazy var descriptionTextSpy = scheduler.createObserver(String?.self)
     lazy var languageSpy = scheduler.createObserver(String.self)
     lazy var stargazersCountSpy = scheduler.createObserver(String.self)
     lazy var watchersCountSpy = scheduler.createObserver(String.self)
@@ -41,6 +43,7 @@ class RepositoryDetailStoreTests: XCTestCase {
         
         store.rx.isFavorite.drive(isFavoriteSpy).disposed(by: disposeBag)
         store.rx.fullName.drive(fullNameSpy).disposed(by: disposeBag)
+        store.rx.descriptionText.drive(descriptionTextSpy).disposed(by: disposeBag)
         store.rx.language.drive(languageSpy).disposed(by: disposeBag)
         store.rx.stargazersCount.drive(stargazersCountSpy).disposed(by: disposeBag)
         store.rx.watchersCount.drive(watchersCountSpy).disposed(by: disposeBag)
@@ -79,33 +82,39 @@ class RepositoryDetailStoreTests: XCTestCase {
         ])
     }
     
+    func test_descriptionText() {
+        XCTAssertEqual(descriptionTextSpy.events, [
+            .next(0, "リポジトリ説明")
+        ])
+    }
+    
     func test_language() {
         XCTAssertEqual(languageSpy.events, [
-            .next(0, "Written in C++")
+            .next(0, "C++")
         ])
     }
     
     func test_stargazersCount() {
         XCTAssertEqual(stargazersCountSpy.events, [
-            .next(0, "61196 stars")
+            .next(0, "61196")
         ])
     }
     
     func test_watchersCount() {
         XCTAssertEqual(watchersCountSpy.events, [
-            .next(0, "61196 watchers")
+            .next(0, "61196")
         ])
     }
     
     func test_forksCount() {
         XCTAssertEqual(forksCountSpy.events, [
-            .next(0, "9836 forks")
+            .next(0, "9836")
         ])
     }
     
     func test_openIssuesCount() {
         XCTAssertEqual(openIssuesCountSpy.events, [
-            .next(0, "6243 open issues")
+            .next(0, "6243")
         ])
     }
     

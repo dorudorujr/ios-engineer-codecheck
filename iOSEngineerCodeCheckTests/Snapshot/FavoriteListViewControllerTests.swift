@@ -9,12 +9,21 @@
 @testable import iOSEngineerCodeCheck
 import XCTest
 import iOSSnapshotTestCase
+import Kingfisher
 
 class FavoriteListViewControllerTests: FBSnapshotTestCase {
+    let cacheDummyURL = "https://avatar/dummy/url"
+    
     override func setUp() {
         super.setUp()
         recordMode = false
         fileNameOptions = [.screenSize, .screenScale]
+        KingfisherManager.shared.cache.store(.init(systemName: "square.and.arrow.up")!, forKey: cacheDummyURL)
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        KingfisherManager.shared.cache.removeImage(forKey: cacheDummyURL)
     }
     
     func test_exists() {
@@ -34,7 +43,8 @@ class FavoriteListViewControllerTests: FBSnapshotTestCase {
     private let repositorys: [GitHubRepositoryData] = [
         .init(id: 1,
               fullName: "apple/swift",
-              owner: .init(avatarUrl: "url"),
+              owner: .init(avatarUrl: "https://avatar/dummy/url"),
+              description: "リポジトリの説明",
               stargazersCount: 61196,
               watchersCount: 61196,
               language: "C++",
@@ -42,7 +52,8 @@ class FavoriteListViewControllerTests: FBSnapshotTestCase {
               openIssuesCount: 6243),
         .init(id: 2,
               fullName: "tensorflow/swift",
-              owner: .init(avatarUrl: "url"),
+              owner: .init(avatarUrl: "https://avatar/dummy/url"),
+              description: "リポジトリの説明",
               stargazersCount: 6068,
               watchersCount: 6068,
               language: "Jupyter Notebook",
