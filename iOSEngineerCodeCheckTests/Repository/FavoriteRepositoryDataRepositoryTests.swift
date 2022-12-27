@@ -16,6 +16,7 @@ class FavoriteRepositoryDataRepositoryTests: XCTestCase {
     let repositoryData = GitHubRepositoryData(id: 1,
                                               fullName: "apple/swift",
                                               owner: .init(avatarUrl: "url"),
+                                              description: "description",
                                               stargazersCount: 61196,
                                               watchersCount: 61196,
                                               language: "C++",

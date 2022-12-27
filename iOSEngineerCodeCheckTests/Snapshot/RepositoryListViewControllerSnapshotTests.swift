@@ -8,12 +8,21 @@
 @testable import iOSEngineerCodeCheck
 import XCTest
 import iOSSnapshotTestCase
+import Kingfisher
 
 class RepositoryListViewControllerSnapshotTests: FBSnapshotTestCase {
+    let cacheDummyURL = "https://avatar/dummy/url"
+    
     override func setUp() {
         super.setUp()
         recordMode = false
         fileNameOptions = [.screenSize, .screenScale]
+        KingfisherManager.shared.cache.store(.init(systemName: "square.and.arrow.up")!, forKey: cacheDummyURL)
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        KingfisherManager.shared.cache.removeImage(forKey: cacheDummyURL)
     }
     
     func test_normal() {
@@ -30,7 +39,8 @@ class RepositoryListViewControllerSnapshotTests: FBSnapshotTestCase {
     private let repositorys: [GitHubRepositoryData] = [
         .init(id: 1,
               fullName: "apple/swift",
-              owner: .init(avatarUrl: "url"),
+              owner: .init(avatarUrl: "https://avatar/dummy/url"),
+              description: "description",
               stargazersCount: 61196,
               watchersCount: 61196,
               language: "C++",
@@ -38,7 +48,8 @@ class RepositoryListViewControllerSnapshotTests: FBSnapshotTestCase {
               openIssuesCount: 6243),
         .init(id: 2,
               fullName: "tensorflow/swift",
-              owner: .init(avatarUrl: "url"),
+              owner: .init(avatarUrl: "https://avatar/dummy/url"),
+              description: "description",
               stargazersCount: 6068,
               watchersCount: 6068,
               language: "Jupyter Notebook",

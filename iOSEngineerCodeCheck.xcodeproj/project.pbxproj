@@ -42,6 +42,8 @@
 		15BF5B3A29477EAD001E353C /* FavoriteRepositoryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */; };
 		15C158B3292F8B7400BA5710 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B2292F8B7400BA5710 /* Differentiator */; };
 		15C158B5292F8B7400BA5710 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 15C158B4292F8B7400BA5710 /* RxDataSources */; };
+		15C677EB2951E2BC005BABCB /* RepositoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C677E92951E2BC005BABCB /* RepositoryListCell.swift */; };
+		15C677EC2951E2BC005BABCB /* RepositoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C677EA2951E2BC005BABCB /* RepositoryListCell.xib */; };
 		15CA1104292CF59400941B76 /* RequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1103292CF59400941B76 /* RequestAction.swift */; };
 		15CA1108292CF78B00941B76 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1107292CF78B00941B76 /* LoadingState.swift */; };
 		15CA110A292CF81000941B76 /* Reducible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA1109292CF81000941B76 /* Reducible.swift */; };
@@ -58,6 +60,9 @@
 		15CD718A2928BF2700CF2A10 /* DependencyInjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD71892928BF2700CF2A10 /* DependencyInjectable.swift */; };
 		15CFE73729310DAA00A550A0 /* RepositoryDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CFE73629310DAA00A550A0 /* RepositoryDetailState.swift */; };
 		15CFE73A29333EDA00A550A0 /* RepositoryListStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CFE73929333EDA00A550A0 /* RepositoryListStoreTests.swift */; };
+		15D04B8F2955FA1500B4511F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D04B8E2955FA1500B4511F /* CardView.swift */; };
+		15D04B912956015B00B4511F /* BlurEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D04B902956015B00B4511F /* BlurEffectView.swift */; };
+		15D04B94295604E000B4511F /* BlurEffectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D04B93295604E000B4511F /* BlurEffectView.xib */; };
 		15E143C6291FA70500D980A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 15E143C5291FA70500D980A3 /* Kingfisher */; };
 		15E143CA291FF01A00D980A3 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E143C9291FF01A00D980A3 /* Requestable.swift */; };
 		15E143CC291FF05900D980A3 /* Parameterizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E143CB291FF05900D980A3 /* Parameterizable.swift */; };
@@ -118,6 +123,8 @@
 		15BF5B3329477B0A001E353C /* OwnerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerObject.swift; sourceTree = "<group>"; };
 		15BF5B3529477C03001E353C /* GitHubRepositoryDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDataObject.swift; sourceTree = "<group>"; };
 		15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDataRepository.swift; sourceTree = "<group>"; };
+		15C677E92951E2BC005BABCB /* RepositoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCell.swift; sourceTree = "<group>"; };
+		15C677EA2951E2BC005BABCB /* RepositoryListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryListCell.xib; sourceTree = "<group>"; };
 		15CA1103292CF59400941B76 /* RequestAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAction.swift; sourceTree = "<group>"; };
 		15CA1107292CF78B00941B76 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		15CA1109292CF81000941B76 /* Reducible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducible.swift; sourceTree = "<group>"; };
@@ -133,6 +140,9 @@
 		15CD71892928BF2700CF2A10 /* DependencyInjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectable.swift; sourceTree = "<group>"; };
 		15CFE73629310DAA00A550A0 /* RepositoryDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailState.swift; sourceTree = "<group>"; };
 		15CFE73929333EDA00A550A0 /* RepositoryListStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListStoreTests.swift; sourceTree = "<group>"; };
+		15D04B8E2955FA1500B4511F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		15D04B902956015B00B4511F /* BlurEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEffectView.swift; sourceTree = "<group>"; };
+		15D04B93295604E000B4511F /* BlurEffectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlurEffectView.xib; sourceTree = "<group>"; };
 		15E143C9291FF01A00D980A3 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		15E143CB291FF05900D980A3 /* Parameterizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameterizable.swift; sourceTree = "<group>"; };
 		15E143D12920CD3400D980A3 /* APIClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
@@ -256,7 +266,10 @@
 		15A457DD293B9D44002068F9 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				15D04B92295604CA00B4511F /* BlurEffectView */,
+				15C677E82951E26E005BABCB /* RepositoryListCell */,
 				15A457DE293B9D76002068F9 /* LoadingView.swift */,
+				15D04B8E2955FA1500B4511F /* CardView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -315,6 +328,15 @@
 				15BF5B3929477EAC001E353C /* FavoriteRepositoryDataRepository.swift */,
 			);
 			path = FavoriteRepositoryDataRepository;
+			sourceTree = "<group>";
+		};
+		15C677E82951E26E005BABCB /* RepositoryListCell */ = {
+			isa = PBXGroup;
+			children = (
+				15C677E92951E2BC005BABCB /* RepositoryListCell.swift */,
+				15C677EA2951E2BC005BABCB /* RepositoryListCell.xib */,
+			);
+			path = RepositoryListCell;
 			sourceTree = "<group>";
 		};
 		15CA1100292CF4F000941B76 /* Redux */ = {
@@ -437,6 +459,15 @@
 				15A55302294DA0EE003448C3 /* RepositoryDetailStoreTests.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		15D04B92295604CA00B4511F /* BlurEffectView */ = {
+			isa = PBXGroup;
+			children = (
+				15D04B902956015B00B4511F /* BlurEffectView.swift */,
+				15D04B93295604E000B4511F /* BlurEffectView.xib */,
+			);
+			path = BlurEffectView;
 			sourceTree = "<group>";
 		};
 		15E143C7291FE19D00D980A3 /* Repository */ = {
@@ -685,8 +716,10 @@
 				BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */,
 				15CD71872928AB6200CF2A10 /* RepositoryDetail.storyboard in Resources */,
 				159FA6A129449D5D00B92DAD /* FavoriteList.storyboard in Resources */,
+				15C677EC2951E2BC005BABCB /* RepositoryListCell.xib in Resources */,
 				BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */,
 				BFD945E6244DC5E80012785A /* RepositoryList.storyboard in Resources */,
+				15D04B94295604E000B4511F /* BlurEffectView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +810,7 @@
 				15E143D22920CD3400D980A3 /* APIClientError.swift in Sources */,
 				15CD71852928A80D00CF2A10 /* Segues.swift in Sources */,
 				15E143D52920CFA700D980A3 /* SearchGitHubRepositoryParameter.swift in Sources */,
+				15D04B8F2955FA1500B4511F /* CardView.swift in Sources */,
 				159FA69F29449D1F00B92DAD /* FavoriteListViewController.swift in Sources */,
 				15E143CA291FF01A00D980A3 /* Requestable.swift in Sources */,
 				15CA110C292CF8D100941B76 /* Event.swift in Sources */,
@@ -789,8 +823,10 @@
 				15CA1117292DC41600941B76 /* AnyRequest.swift in Sources */,
 				15E143DC2920E78D00D980A3 /* Owner.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
+				15D04B912956015B00B4511F /* BlurEffectView.swift in Sources */,
 				15A457DF293B9D76002068F9 /* LoadingView.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
+				15C677EB2951E2BC005BABCB /* RepositoryListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

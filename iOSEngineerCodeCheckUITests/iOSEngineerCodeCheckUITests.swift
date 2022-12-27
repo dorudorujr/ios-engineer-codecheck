@@ -43,6 +43,7 @@ class iOSEngineerCodeCheckUITests: XCTestCase {
         XCTAssertTrue(app.images["AvatarImage"].exists)
         XCTAssertTrue(app.staticTexts["TitleLabel"].exists)
         XCTAssertTrue(app.staticTexts["LanguageLabel"].exists)
+        XCTAssertTrue(app.staticTexts["DescriptionLabel"].exists)
         XCTAssertTrue(app.staticTexts["StargazersCountLabel"].exists)
         XCTAssertTrue(app.staticTexts["WachersCountLabel"].exists)
         XCTAssertTrue(app.staticTexts["ForksCountLabel"].exists)
