@@ -10,6 +10,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    static var statusBarHeight: CGFloat = 0
     private var coordinator: ApplicationCoordinator!
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         coordinator = ApplicationCoordinator()
         coordinator.start(with: window!)
+        SceneDelegate.statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

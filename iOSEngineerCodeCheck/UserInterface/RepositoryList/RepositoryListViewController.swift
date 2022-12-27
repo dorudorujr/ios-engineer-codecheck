@@ -35,7 +35,7 @@ class RepositoryListViewController: UITableViewController, UISearchBarDelegate {
         // Do any additional setup after loading the view.
         title = "検索画面"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .automatic
         searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
         searchBar.delegate = self
         tableView.dataSource = nil

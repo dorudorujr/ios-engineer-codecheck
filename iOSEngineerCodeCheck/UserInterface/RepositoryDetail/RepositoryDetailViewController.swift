@@ -16,9 +16,11 @@ class RepositoryDetailViewController: UIViewController {
     typealias State = RepositoryDetailState
     typealias Store = RxStore<State>
     
+    @IBOutlet weak private var blurEffectBackground: BlurEffectView!
     @IBOutlet weak private var avatarImageView: UIImageView!
     
     @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
     
     @IBOutlet weak private var languageLabel: UILabel!
     
@@ -26,6 +28,7 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak private var wachersCountLabel: UILabel!
     @IBOutlet weak private var forksCountLabel: UILabel!
     @IBOutlet weak private var openIssuesCountLabel: UILabel!
+    @IBOutlet weak private var cardViewTopConstraint: NSLayoutConstraint!
     
     private var store: Store!
     private var favoriteThunkCreator: FavoriteRepositoryDataThunkCreator!
@@ -33,8 +36,12 @@ class RepositoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.largeTitleDisplayMode = .never
+        
         let favoriteButton = UIBarButtonItem(image: .init(systemName: "heart"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = favoriteButton
+        
+        cardViewTopConstraint.constant += SceneDelegate.statusBarHeight
         
         bind()
         guard let repositoryData = store.state.repositoryData else {
@@ -49,6 +56,10 @@ class RepositoryDetailViewController: UIViewController {
     private func bind() {
         store.rx.fullName
             .drive(titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        store.rx.descriptionText
+            .drive(descriptionLabel.rx.text)
             .disposed(by: disposeBag)
         
         store.rx.language
@@ -72,8 +83,9 @@ class RepositoryDetailViewController: UIViewController {
             .disposed(by: disposeBag)
         
         store.rx.avatarImage
-            .drive(onNext: { [weak self] value in
-                self?.avatarImageView.kf.setImage(with: value)
+            .drive(Binder(self) { me, value in
+                me.avatarImageView.kf.setImage(with: value)
+                me.blurEffectBackground.image.kf.setImage(with: value)
             })
             .disposed(by: disposeBag)
         
@@ -119,14 +131,19 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
             .asDriver(onErrorDriveWith: .never())
     }
     
+    var descriptionText: Driver<String?> {
+        base.stateObservable.mapAt(\.repositoryData)
+            .unwrap()
+            .distinctUntilChanged()
+            .mapAt(\.description)
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
     var language: Driver<String> {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
             .mapAt(\.language)
-            .map { value in
-                "Written in \(value)"
-            }
             .asDriver(onErrorDriveWith: .never())
     }
     
@@ -134,10 +151,7 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
-            .mapAt(\.stargazersCount)
-            .map { value in
-                "\(value) stars"
-            }
+            .mapAt(\.stargazersCount.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
@@ -145,10 +159,7 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
-            .mapAt(\.watchersCount)
-            .map { value in
-                "\(value) watchers"
-            }
+            .mapAt(\.watchersCount.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
@@ -156,10 +167,7 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
-            .mapAt(\.forksCount)
-            .map { value in
-                "\(value) forks"
-            }
+            .mapAt(\.forksCount.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
@@ -167,10 +175,7 @@ extension Reactive where Base: RepositoryDetailViewController.Store {
         base.stateObservable.mapAt(\.repositoryData)
             .unwrap()
             .distinctUntilChanged()
-            .mapAt(\.openIssuesCount)
-            .map { value in
-                "\(value) open issues"
-            }
+            .mapAt(\.openIssuesCount.description)
             .asDriver(onErrorDriveWith: .never())
     }
     
