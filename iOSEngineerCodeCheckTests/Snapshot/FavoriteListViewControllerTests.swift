@@ -9,12 +9,21 @@
 @testable import iOSEngineerCodeCheck
 import XCTest
 import iOSSnapshotTestCase
+import Kingfisher
 
 class FavoriteListViewControllerTests: FBSnapshotTestCase {
+    let cacheDummyURL = "https://avatar/dummy/url"
+    
     override func setUp() {
         super.setUp()
         recordMode = false
         fileNameOptions = [.screenSize, .screenScale]
+        KingfisherManager.shared.cache.store(.init(systemName: "square.and.arrow.up")!, forKey: cacheDummyURL)
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        KingfisherManager.shared.cache.removeImage(forKey: cacheDummyURL)
     }
     
     func test_exists() {
