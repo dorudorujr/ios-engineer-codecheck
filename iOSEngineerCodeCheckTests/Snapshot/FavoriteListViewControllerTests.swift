@@ -43,7 +43,7 @@ class FavoriteListViewControllerTests: FBSnapshotTestCase {
     private let repositorys: [GitHubRepositoryData] = [
         .init(id: 1,
               fullName: "apple/swift",
-              owner: .init(avatarUrl: "url"),
+              owner: .init(avatarUrl: "https://avatar/dummy/url"),
               description: "リポジトリの説明",
               stargazersCount: 61196,
               watchersCount: 61196,
@@ -52,7 +52,7 @@ class FavoriteListViewControllerTests: FBSnapshotTestCase {
               openIssuesCount: 6243),
         .init(id: 2,
               fullName: "tensorflow/swift",
-              owner: .init(avatarUrl: "url"),
+              owner: .init(avatarUrl: "https://avatar/dummy/url"),
               description: "リポジトリの説明",
               stargazersCount: 6068,
               watchersCount: 6068,
