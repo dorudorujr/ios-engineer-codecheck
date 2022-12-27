@@ -43,7 +43,6 @@ class RepositoryDetailStoreTests: XCTestCase {
         
         store.rx.isFavorite.drive(isFavoriteSpy).disposed(by: disposeBag)
         store.rx.fullName.drive(fullNameSpy).disposed(by: disposeBag)
-        //store.rx.descriptionText.drive(descriptionTextSpy).disposed(by: disposeBag)
         store.rx.descriptionText.drive(descriptionTextSpy).disposed(by: disposeBag)
         store.rx.language.drive(languageSpy).disposed(by: disposeBag)
         store.rx.stargazersCount.drive(stargazersCountSpy).disposed(by: disposeBag)
